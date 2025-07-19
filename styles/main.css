@@ -828,6 +828,56 @@ body {
         border-bottom: none;
     }
 
+    /* Presentation Container */
+    .presentation-container {
+        margin: 2rem 0;
+    }
+
+    .presentation-frame {
+        background: #f8fafc;
+        border-radius: 12px;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .presentation-frame iframe {
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .presentation-options {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .presentation-options .btn {
+        min-width: 200px;
+        text-align: center;
+    }
+
+    /* Fallback for presentation */
+    .presentation-fallback {
+        background: #f8fafc;
+        border: 2px dashed #cbd5e1;
+        border-radius: 12px;
+        padding: 3rem 2rem;
+        text-align: center;
+        margin: 2rem 0;
+    }
+
+    .presentation-fallback h4 {
+        color: #64748b;
+        margin-bottom: 1rem;
+    }
+
+    .presentation-fallback p {
+        color: #94a3b8;
+        margin-bottom: 2rem;
+    }
+
     /* Footer */
 .footer {
     background: #1e293b;

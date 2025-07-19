@@ -271,4 +271,58 @@ if ('IntersectionObserver' in window) {
     document.querySelectorAll('img[data-src]').forEach(img => {
         imageObserver.observe(img);
     });
-} 
+}
+
+// Presentation iframe handling
+document.addEventListener('DOMContentLoaded', function() {
+    const presentationIframe = document.querySelector('.presentation-frame iframe');
+    
+    if (presentationIframe) {
+        // Add loading state
+        const presentationFrame = document.querySelector('.presentation-frame');
+        const originalContent = presentationFrame.innerHTML;
+        
+        // Show loading state
+        presentationFrame.innerHTML = `
+            <div class="presentation-fallback">
+                <h4><i class="fas fa-spinner fa-spin"></i> Loading Presentation...</h4>
+                <p>Please wait while the presentation loads. This may take a few moments.</p>
+            </div>
+        `;
+
+        // Check if iframe loads successfully
+        presentationIframe.onload = function() {
+            // Iframe loaded successfully, restore original content
+            presentationFrame.innerHTML = originalContent;
+        };
+
+        presentationIframe.onerror = function() {
+            // Iframe failed to load, show fallback
+            presentationFrame.innerHTML = `
+                <div class="presentation-fallback">
+                    <h4><i class="fas fa-exclamation-triangle"></i> Presentation Not Available</h4>
+                    <p>The presentation couldn't be loaded directly. Please use the links below to view or download it.</p>
+                    <div class="presentation-options">
+                        <a href="https://view.officeapps.live.com/op/embed.aspx?src=https://raw.githubusercontent.com/yourusername/yourrepo/main/A%20Timeline%20of%20AI%20Evolution.pptx" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-external-link-alt"></i> Open in New Tab
+                        </a>
+                        <a href="../A Timeline of AI Evolution.pptx" target="_blank" class="btn btn-secondary">
+                            <i class="fas fa-file-powerpoint"></i> View File
+                        </a>
+                        <a href="../A Timeline of AI Evolution.pptx" download class="btn btn-secondary">
+                            <i class="fas fa-download"></i> Download Presentation
+                        </a>
+                    </div>
+                </div>
+            `;
+        };
+
+        // Set a timeout to restore original content if loading takes too long
+        setTimeout(function() {
+            if (presentationFrame.querySelector('.presentation-fallback')) {
+                // Still showing loading, restore original iframe
+                presentationFrame.innerHTML = originalContent;
+            }
+        }, 5000);
+    }
+}); 
