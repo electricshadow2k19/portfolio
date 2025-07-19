@@ -96,21 +96,22 @@
                                     </div>
                                 </div>
                                 <div class="presentation-frame">
-                                    <div class="presentation-preview">
-                                        <div class="presentation-info">
-                                            <div class="presentation-icon">
-                                                <i class="fas fa-file-powerpoint"></i>
-                                            </div>
-                                            <div class="presentation-details">
-                                                <h4>A Timeline of AI Evolution.pptx</h4>
-                                                <p>PowerPoint presentation showcasing the evolution of artificial intelligence from 1950s to present day.</p>
-                                                <div class="presentation-stats">
-                                                    <span><i class="fas fa-calendar"></i> Created: 2024</span>
-                                                    <span><i class="fas fa-file"></i> Format: PowerPoint</span>
-                                                    <span><i class="fas fa-download"></i> Size: 6.6 MB</span>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <iframe 
+                                        id="presentation-iframe"
+                                        src="https://view.officeapps.live.com/op/embed.aspx?src=https://electricshadow2k19.github.io/portfolio/A%20Timeline%20of%20AI%20Evolution.pptx"
+                                        width="100%" 
+                                        height="600px" 
+                                        frameborder="0"
+                                        allowfullscreen
+                                        onload="presentationLoaded()"
+                                        onerror="presentationError()">
+                                    </iframe>
+                                    <div id="presentation-fallback" class="presentation-fallback" style="display: none;">
+                                        <h4><i class="fas fa-exclamation-triangle"></i> Presentation Viewer Unavailable</h4>
+                                        <p>The PowerPoint presentation viewer is currently unavailable. Please use the download option below to view the presentation.</p>
+                                        <a href="../A Timeline of AI Evolution.pptx" download class="btn btn-primary">
+                                            <i class="fas fa-download"></i> Download Presentation
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -385,5 +386,60 @@
     </footer>
 
     <script src="../scripts/main.js"></script>
+    <script>
+        // Presentation viewer functions
+        function presentationLoaded() {
+            console.log('Presentation loaded successfully');
+            document.getElementById('presentation-fallback').style.display = 'none';
+        }
+
+        function presentationError() {
+            console.log('Presentation failed to load');
+            document.getElementById('presentation-iframe').style.display = 'none';
+            document.getElementById('presentation-fallback').style.display = 'block';
+        }
+
+        // Check if iframe loads within 10 seconds
+        setTimeout(function() {
+            const iframe = document.getElementById('presentation-iframe');
+            if (iframe && iframe.contentWindow && iframe.contentWindow.location.href === 'about:blank') {
+                presentationError();
+            }
+        }, 10000);
+
+        // Presentation controls
+        document.addEventListener('DOMContentLoaded', function() {
+            const expandViewBtn = document.getElementById('expandView');
+            const fullscreenBtn = document.getElementById('fullscreen');
+            const presentationFrame = document.getElementById('presentation-iframe');
+
+            if (expandViewBtn) {
+                expandViewBtn.addEventListener('click', function() {
+                    if (presentationFrame) {
+                        const currentHeight = presentationFrame.style.height || '600px';
+                        const newHeight = currentHeight === '600px' ? '800px' : '600px';
+                        presentationFrame.style.height = newHeight;
+                        this.innerHTML = newHeight === '800px' ? 
+                            '<i class="fas fa-compress-arrows-alt"></i> Compress View' : 
+                            '<i class="fas fa-expand-arrows-alt"></i> Expand View';
+                    }
+                });
+            }
+
+            if (fullscreenBtn) {
+                fullscreenBtn.addEventListener('click', function() {
+                    if (presentationFrame) {
+                        if (presentationFrame.requestFullscreen) {
+                            presentationFrame.requestFullscreen();
+                        } else if (presentationFrame.webkitRequestFullscreen) {
+                            presentationFrame.webkitRequestFullscreen();
+                        } else if (presentationFrame.msRequestFullscreen) {
+                            presentationFrame.msRequestFullscreen();
+                        }
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html> 

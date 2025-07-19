@@ -85,9 +85,10 @@
                             <iframe 
                                 src="https://college-assistant-chatbot.vercel.app/"
                                 width="100%" 
-                                height="600px" 
+                                height="700px" 
                                 frameborder="0"
-                                allowfullscreen>
+                                allowfullscreen
+                                scrolling="no">
                             </iframe>
                         </div>
                         <div class="chatbot-options">
@@ -104,13 +105,13 @@
                     <div class="artifact-section">
                         <h3><i class="fas fa-info-circle"></i> Project Description</h3>
                         <p>
-                            This chatbot was developed as part of the Machine Learning Fundamentals course at Indiana Wesleyan University. 
-                            The application serves as a virtual assistant for college students, providing information about courses, 
-                            campus resources, academic policies, and general student support.
+                            The College Assistant Chatbot is a comprehensive web-based AI application designed to help college students 
+                            with academic tasks and queries. Built using modern web technologies and integrated with advanced AI models, 
+                            this project demonstrates practical application of machine learning concepts in a real-world scenario.
                         </p>
                         <p>
-                            The chatbot utilizes natural language processing to understand user queries and provides relevant, 
-                            contextual responses. It's designed to be user-friendly and accessible across different devices.
+                            The chatbot provides intelligent assistance for assignments, reminders, APA formatting, and general academic 
+                            queries, making it a valuable tool for students seeking quick and reliable academic support.
                         </p>
                     </div>
 
@@ -118,12 +119,14 @@
                     <div class="artifact-section">
                         <h3><i class="fas fa-star"></i> Key Features</h3>
                         <ul class="feature-list">
-                            <li><strong>Natural Language Processing:</strong> Understands and responds to natural language queries</li>
-                            <li><strong>Course Information:</strong> Provides details about courses, schedules, and requirements</li>
-                            <li><strong>Campus Resources:</strong> Information about library, dining, housing, and student services</li>
-                            <li><strong>Academic Support:</strong> Guidance on academic policies, registration, and deadlines</li>
+                            <li><strong>Academic Assistance:</strong> Help with assignments, quizzes, discussions, and APA formatting</li>
+                            <li><strong>AI-Powered Responses:</strong> Uses DeepSeek AI model for intelligent, contextual responses</li>
+                            <li><strong>Real-time Chat Interface:</strong> Modern chat UI with "thinking" animation and message history</li>
+                            <li><strong>Copy Functionality:</strong> One-click copy button for AI responses</li>
+                            <li><strong>File Upload Support:</strong> Basic file and image upload capabilities</li>
+                            <li><strong>Secure API Integration:</strong> Server-side API key management for security</li>
                             <li><strong>Responsive Design:</strong> Works seamlessly on desktop, tablet, and mobile devices</li>
-                            <li><strong>Real-time Chat Interface:</strong> Modern chat UI with message history</li>
+                            <li><strong>Cloud Hosted:</strong> Deployed on Vercel with no local server required</li>
                         </ul>
                     </div>
 
@@ -137,23 +140,23 @@
                                     <li>Next.js</li>
                                     <li>React</li>
                                     <li>JavaScript (ES6+)</li>
-                                    <li>CSS3</li>
+                                    <li>Inline CSS</li>
                                 </ul>
                             </div>
                             <div class="tech-category">
                                 <h4>Backend</h4>
                                 <ul>
+                                    <li>Next.js API Routes</li>
                                     <li>Node.js</li>
-                                    <li>API Routes</li>
-                                    <li>JSON</li>
+                                    <li>Environment Variables</li>
                                 </ul>
                             </div>
                             <div class="tech-category">
-                                <h4>AI/ML</h4>
+                                <h4>AI & Deployment</h4>
                                 <ul>
-                                    <li>Natural Language Processing</li>
-                                    <li>Pattern Matching</li>
-                                    <li>Context Management</li>
+                                    <li>OpenRouter.ai API</li>
+                                    <li>DeepSeek AI Model</li>
+                                    <li>Vercel Hosting</li>
                                 </ul>
                             </div>
                         </div>
@@ -166,49 +169,55 @@
                             <div class="process-step">
                                 <div class="step-number">1</div>
                                 <div class="step-content">
-                                    <h4>Requirements Analysis</h4>
-                                    <p>Identified key features needed for a college assistant chatbot and defined user personas.</p>
+                                    <h4>API & Key Setup</h4>
+                                    <p>Created OpenRouter.ai account, generated API key, and tested various free models including DeepSeek.</p>
                                 </div>
                             </div>
                             <div class="process-step">
                                 <div class="step-number">2</div>
                                 <div class="step-content">
-                                    <h4>Design & Architecture</h4>
-                                    <p>Designed the user interface and planned the application architecture using Next.js.</p>
+                                    <h4>Next.js Application Setup</h4>
+                                    <p>Scaffolded Next.js app, built frontend chat interface, and created backend API routes.</p>
                                 </div>
                             </div>
                             <div class="process-step">
                                 <div class="step-number">3</div>
                                 <div class="step-content">
-                                    <h4>Implementation</h4>
-                                    <p>Built the chat interface, implemented the chatbot logic, and integrated with the backend.</p>
+                                    <h4>API Integration</h4>
+                                    <p>Integrated OpenRouter API with proper authentication headers and server-side request handling.</p>
                                 </div>
                             </div>
                             <div class="process-step">
                                 <div class="step-number">4</div>
                                 <div class="step-content">
-                                    <h4>Testing & Refinement</h4>
-                                    <p>Tested the application with various user scenarios and refined the responses.</p>
+                                    <h4>UI Enhancement & Deployment</h4>
+                                    <p>Added thinking animation, copy functionality, file upload support, and deployed to Vercel.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Challenges & Solutions -->
+                    <!-- Technical Implementation -->
                     <div class="artifact-section">
-                        <h3><i class="fas fa-lightbulb"></i> Challenges & Solutions</h3>
+                        <h3><i class="fas fa-lightbulb"></i> Technical Implementation</h3>
                         <div class="challenges-list">
                             <div class="challenge-item">
-                                <h4>Challenge: Natural Language Understanding</h4>
-                                <p>Implementing effective natural language processing for diverse student queries.</p>
-                                <h5>Solution:</h5>
-                                <p>Developed a pattern-matching system with context awareness and fallback responses.</p>
+                                <h4>AI Model Integration</h4>
+                                <p>Successfully integrated OpenRouter.ai API with DeepSeek free model for intelligent responses.</p>
+                                <h5>Key Features:</h5>
+                                <p>System prompt optimization, secure API key management, and real-time response handling.</p>
                             </div>
                             <div class="challenge-item">
-                                <h4>Challenge: Real-time Response</h4>
-                                <p>Ensuring fast and responsive chat interface for better user experience.</p>
-                                <h5>Solution:</h5>
-                                <p>Optimized the chat component with efficient state management and async processing.</p>
+                                <h4>User Experience Enhancement</h4>
+                                <p>Implemented thinking animation, copy functionality, and file upload capabilities.</p>
+                                <h5>Solutions:</h5>
+                                <p>Clean visual message layout, responsive design, and intuitive user interface.</p>
+                            </div>
+                            <div class="challenge-item">
+                                <h4>Deployment & Security</h4>
+                                <p>Deployed to Vercel with secure environment variable management for API keys.</p>
+                                <h5>Implementation:</h5>
+                                <p>Server-side API calls, environment variable configuration, and cloud hosting setup.</p>
                             </div>
                         </div>
                     </div>
@@ -217,11 +226,12 @@
                     <div class="artifact-section">
                         <h3><i class="fas fa-graduation-cap"></i> Learning Outcomes</h3>
                         <ul class="learning-list">
-                            <li>Gained practical experience with Next.js and React development</li>
-                            <li>Learned to implement basic AI/ML concepts in web applications</li>
-                            <li>Developed skills in user interface design and user experience</li>
-                            <li>Understood the importance of responsive design and accessibility</li>
-                            <li>Practiced project planning and development methodologies</li>
+                            <li>Gained hands-on experience with Next.js framework and React development</li>
+                            <li>Learned to integrate third-party AI APIs (OpenRouter.ai) into web applications</li>
+                            <li>Developed understanding of environment variable management and API security</li>
+                            <li>Practiced modern web development with cloud deployment (Vercel)</li>
+                            <li>Enhanced skills in user interface design and real-time chat functionality</li>
+                            <li>Learned to troubleshoot API integration issues and model compatibility</li>
                         </ul>
                     </div>
 
@@ -229,8 +239,11 @@
                     <div class="artifact-section">
                         <h3><i class="fas fa-link"></i> Additional Resources</h3>
                         <div class="project-links">
+                            <a href="https://college-assistant-chatbot.vercel.app/" target="_blank" class="btn btn-primary">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
                             <a href="../../college-assistant-chatbot/README.md" target="_blank" class="btn btn-secondary">
-                                <i class="fas fa-file-alt"></i> Documentation
+                                <i class="fas fa-file-alt"></i> Technical Documentation
                             </a>
                         </div>
                     </div>
