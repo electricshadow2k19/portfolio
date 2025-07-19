@@ -422,6 +422,89 @@ body {
     font-size: 0.95rem;
 }
 
+.course-toggle {
+    color: #2563eb;
+    cursor: pointer;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.course-toggle:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+.course-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.course-toggle.active i {
+    transform: rotate(180deg);
+}
+
+.planned-courses {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    margin-top: 1rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 0 1rem;
+}
+
+.planned-courses.show {
+    max-height: 500px;
+    padding: 1rem;
+    border: 1px solid #e2e8f0;
+}
+
+.course-category {
+    margin-bottom: 1.5rem;
+}
+
+.course-category:last-child {
+    margin-bottom: 0;
+}
+
+.course-category h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.course-category h5 i {
+    color: #2563eb;
+}
+
+.course-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.course-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e2e8f0;
+    color: #475569;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.course-list li:last-child {
+    border-bottom: none;
+}
+
+.course-list li strong {
+    color: #1e293b;
+    font-weight: 600;
+}
+
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

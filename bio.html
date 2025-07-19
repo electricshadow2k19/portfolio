@@ -56,7 +56,7 @@
                             <h2>Arun Kumar Vallala</h2>
                             <p class="title">Engineer DevOps & AI/ML Student</p>
                             <p class="location"><i class="fas fa-map-marker-alt"></i> United States</p>
-                            <p class="contact"><i class="fas fa-envelope"></i> kumar.arunvallala@gmail.com</p>
+                            <p class="contact"><i class="fas fa-envelope"></i> electricshadow2k19@gmail.com</p>
                             <p class="contact"><i class="fas fa-phone"></i> +1-516-928-9153</p>
                         </div>
                     </div>
@@ -67,8 +67,7 @@
                     <h3><i class="fas fa-user"></i> About Me</h3>
                     <p>
                         I am a skilled IT professional with over 11 years of experience in Quality Assurance, Software Testing, 
-                        and DevOps engineering, currently working as Engineer DevOps at Vercara (formerly Security Services). 
-                        My expertise spans across web-based and client-server applications, with deep knowledge of software 
+                        and DevOps engineering.My expertise spans across web-based and client-server applications, with deep knowledge of software 
                         quality activities throughout the software development life cycle (SDLC).
                     </p>
                     <p>
@@ -88,13 +87,14 @@
                 <div class="bio-card">
                     <h3><i class="fas fa-graduation-cap"></i> Education</h3>
                     <div class="education-item">
-                        <h4>Machine Learning Fundamentals (AIML-500)</h4>
+                        <h4>Master of Science - AI - Data Analytics Specialization</h4>
                         <p class="institution">Indiana Wesleyan University</p>
-                        <p class="period">2024 - Present</p>
+                        <p class="period">2025 - Present</p>
                         <p class="description">
-                            Comprehensive study of machine learning fundamentals, algorithms, and practical applications. 
-                            Course includes hands-on projects, AI lab documentation, and real-world implementation of 
-                            intelligent systems.
+                            Advanced program focusing on artificial intelligence and data analytics. Currently maintaining a 4.0 GPA. 
+                            Core AI courses include Machine Learning Fundamentals, Large Language Models/Generative AI, Model Development, 
+                            Responsible AI Applications, and AI Integration Capstone. Data Analytics specialization covers Data Visualization, 
+                            Big Data, Text Mining, and Data Mining Concepts.
                         </p>
                     </div>
                     <div class="education-item">
@@ -104,6 +104,36 @@
                         <p class="description">
                             Foundation in computer science principles, programming, and software development methodologies.
                         </p>
+                    </div>
+                    <div class="education-item">
+                        <h4>Current Academic Progress</h4>
+                        <p class="institution">Indiana Wesleyan University</p>
+                        <p class="period">2025</p>
+                        <p class="description">
+                            <strong>Completed:</strong> DTAN-500 Foundations of Data Analytics (Grade: A)<br>
+                            <strong>In Progress:</strong> AIML-500 Machine Learning Fundamentals<br>
+                            <strong>Planned:</strong> <span class="course-toggle" onclick="toggleCourses()">8 additional courses across AI and Data Analytics specializations <i class="fas fa-chevron-down"></i></span>
+                        </p>
+                        <div class="planned-courses" id="plannedCourses">
+                            <div class="course-category">
+                                <h5><i class="fas fa-robot"></i> AI Major Requirements</h5>
+                                <ul class="course-list">
+                                    <li><strong>AIML-505:</strong> Large Language Models/Generative AI (3FA2025)</li>
+                                    <li><strong>AIML-501:</strong> Model Development (3WI2026)</li>
+                                    <li><strong>AIML-510:</strong> Responsible Applications of AI (3SU2026)</li>
+                                    <li><strong>AIML-515:</strong> AI Integration Capstone (3FA2026)</li>
+                                </ul>
+                            </div>
+                            <div class="course-category">
+                                <h5><i class="fas fa-chart-bar"></i> Data Analytics Specialization</h5>
+                                <ul class="course-list">
+                                    <li><strong>DTAN-505:</strong> Data Visualization (3FA2025)</li>
+                                    <li><strong>DTAN-515:</strong> Big Data (3WI2026)</li>
+                                    <li><strong>DTAN-520:</strong> Text Mining (3SU2026)</li>
+                                    <li><strong>DTAN-525:</strong> Data Mining Concepts (3FA2026)</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                     <div class="education-item">
                         <h4>Certifications</h4>
@@ -242,6 +272,20 @@
         </div>
     </footer>
 
+    <script>
+        function toggleCourses() {
+            const coursesDiv = document.getElementById('plannedCourses');
+            const toggleSpan = document.querySelector('.course-toggle');
+            
+            if (coursesDiv.classList.contains('show')) {
+                coursesDiv.classList.remove('show');
+                toggleSpan.classList.remove('active');
+            } else {
+                coursesDiv.classList.add('show');
+                toggleSpan.classList.add('active');
+            }
+        }
+    </script>
     <script src="scripts/main.js"></script>
 </body>
 </html> 
