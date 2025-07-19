@@ -83,16 +83,6 @@
                         <h3><i class="fas fa-presentation"></i> AI Evolution Timeline Presentation</h3>
                         <div class="presentation-container">
                             <div class="presentation-viewer">
-                                <div class="presentation-controls">
-                                    <div class="control-left">
-                                        <span class="page-info" id="pageInfo">Page 1 / 24</span>
-                                    </div>
-                                    <div class="control-right">
-                                        <button class="control-btn" id="prevPage" onclick="navigateSlide('prev')"><i class="fas fa-chevron-left"></i></button>
-                                        <button class="control-btn" id="nextPage" onclick="navigateSlide('next')"><i class="fas fa-chevron-right"></i></button>
-                                        <button class="control-btn" id="fullscreen"><i class="fas fa-expand"></i></button>
-                                    </div>
-                                </div>
                                 <div class="presentation-frame">
                                     <iframe 
                                         id="presentation-iframe"
@@ -378,7 +368,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Arun Kumar Vallala. All rights reserved.</p>
+                <p>&copy; 2025 Arun Kumar Vallala. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -405,48 +395,11 @@
             }
         }, 10000);
 
-        // Global variables for slide navigation
-        let currentSlide = 1;
-        const totalSlides = 24;
 
-        // Navigation function for slides
-        function navigateSlide(direction) {
-            if (direction === 'prev' && currentSlide > 1) {
-                currentSlide--;
-            } else if (direction === 'next' && currentSlide < totalSlides) {
-                currentSlide++;
-            }
-            
-            updatePageInfo();
-            
-            // Try to communicate with the Office Online viewer
-            const presentationFrame = document.getElementById('presentation-iframe');
-            if (presentationFrame && presentationFrame.contentWindow) {
-                try {
-                    // Send navigation command to Office Online viewer
-                    presentationFrame.contentWindow.postMessage({
-                        action: direction === 'prev' ? 'previousSlide' : 'nextSlide'
-                    }, '*');
-                } catch (e) {
-                    console.log('Navigation clicked - Office Online viewer communication attempted');
-                }
-            }
-        }
-
-        // Update page information display
-        function updatePageInfo() {
-            const pageInfo = document.getElementById('pageInfo');
-            if (pageInfo) {
-                pageInfo.textContent = `Page ${currentSlide} / ${totalSlides}`;
-            }
-        }
 
         // Presentation controls
         document.addEventListener('DOMContentLoaded', function() {
             const expandViewBtn = document.getElementById('expandView');
-            const fullscreenBtn = document.getElementById('fullscreen');
-            const prevPageBtn = document.getElementById('prevPage');
-            const nextPageBtn = document.getElementById('nextPage');
             const presentationFrame = document.getElementById('presentation-iframe');
 
             if (expandViewBtn) {
@@ -462,20 +415,6 @@
                 });
             }
 
-            if (fullscreenBtn) {
-                fullscreenBtn.addEventListener('click', function() {
-                    if (presentationFrame) {
-                        if (presentationFrame.requestFullscreen) {
-                            presentationFrame.requestFullscreen();
-                        } else if (presentationFrame.webkitRequestFullscreen) {
-                            presentationFrame.webkitRequestFullscreen();
-                        } else if (presentationFrame.msRequestFullscreen) {
-                            presentationFrame.msRequestFullscreen();
-                        }
-                    }
-                });
-            }
-
             // Listen for messages from the Office Online viewer
             window.addEventListener('message', function(event) {
                 if (event.origin.includes('officeapps.live.com')) {
@@ -483,9 +422,6 @@
                     console.log('Message from Office Online viewer:', event.data);
                 }
             });
-
-            // Initialize page info
-            updatePageInfo();
         });
     </script>
 </body>
