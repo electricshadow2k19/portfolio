@@ -907,14 +907,16 @@ body {
 }
 
     .project-links {
-        display: flex;
+        display: flex !important;
         gap: 1rem;
         flex-wrap: wrap;
         margin-top: 1rem;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
     .project-links .btn {
-        display: inline-flex;
+        display: inline-flex !important;
         align-items: center;
         gap: 0.5rem;
         padding: 10px 20px;
@@ -927,6 +929,8 @@ body {
         border: none;
         cursor: pointer;
         font-size: 0.9rem;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
     .project-links .btn:hover {
@@ -940,6 +944,13 @@ body {
 
     .project-links .btn.btn-secondary:hover {
         background: #475569;
+    }
+
+    /* Ensure Additional Resources section is always visible */
+    .artifact-section:last-child {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
     /* Timeline Grid */
@@ -1192,7 +1203,7 @@ body {
         display: flex;
         gap: 1rem;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: flex-start;
         margin-top: 1rem;
     }
 
