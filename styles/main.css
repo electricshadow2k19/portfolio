@@ -833,17 +833,60 @@ body {
         margin: 2rem 0;
     }
 
-    .presentation-frame {
+    .presentation-preview {
         background: #f8fafc;
         border-radius: 12px;
-        padding: 1rem;
+        padding: 2rem;
         margin-bottom: 1.5rem;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        border: 2px solid #e2e8f0;
     }
 
-    .presentation-frame iframe {
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    .presentation-info {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .presentation-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        color: white;
+        flex-shrink: 0;
+    }
+
+    .presentation-details h4 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: #1e293b;
+    }
+
+    .presentation-details p {
+        color: #64748b;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+    }
+
+    .presentation-stats {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .presentation-stats span {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #475569;
+        font-size: 0.9rem;
+        font-weight: 500;
     }
 
     .presentation-options {
@@ -856,6 +899,76 @@ body {
     .presentation-options .btn {
         min-width: 200px;
         text-align: center;
+    }
+
+    /* Chatbot Container */
+    .chatbot-container {
+        background: #f8fafc;
+        border-radius: 12px;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        border: 2px solid #e2e8f0;
+    }
+
+    .chatbot-container iframe {
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background: white;
+    }
+
+    .chatbot-options {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .chatbot-options .btn {
+        min-width: 200px;
+        text-align: center;
+    }
+
+    /* Responsive styles for presentation and chatbot */
+    @media (max-width: 768px) {
+        .presentation-info {
+            flex-direction: column;
+            text-align: center;
+            gap: 1rem;
+        }
+
+        .presentation-stats {
+            justify-content: center;
+        }
+
+        .presentation-options .btn,
+        .chatbot-options .btn {
+            min-width: 150px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .presentation-preview {
+            padding: 1.5rem;
+        }
+
+        .presentation-stats {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .presentation-options,
+        .chatbot-options {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .presentation-options .btn,
+        .chatbot-options .btn {
+            width: 100%;
+            max-width: 300px;
+        }
     }
 
     /* Fallback for presentation */
