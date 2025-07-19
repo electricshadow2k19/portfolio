@@ -384,6 +384,44 @@ body {
     margin-bottom: 0.5rem;
 }
 
+.experience-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.experience-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.experience-item h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #1e293b;
+}
+
+.experience-item .company {
+    color: #2563eb;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.experience-item .period {
+    color: #64748b;
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-bottom: 0.75rem;
+}
+
+.experience-item .description {
+    color: #475569;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

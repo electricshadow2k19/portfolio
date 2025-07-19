@@ -370,10 +370,10 @@
                         <a href="https://sites.google.com/view/arunkumarvallala" target="_blank">
                             <i class="fas fa-globe"></i>
                         </a>
-                        <a href="#" target="_blank">
+                        <a href="https://www.linkedin.com/in/v-arun-601548126/" target="_blank">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="#" target="_blank">
+                        <a href="https://github.com/electricshadow2k19" target="_blank">
                             <i class="fab fa-github"></i>
                         </a>
                     </div>
@@ -411,6 +411,10 @@
         document.addEventListener('DOMContentLoaded', function() {
             const expandViewBtn = document.getElementById('expandView');
             const fullscreenBtn = document.getElementById('fullscreen');
+            const zoomInBtn = document.getElementById('zoomIn');
+            const zoomOutBtn = document.getElementById('zoomOut');
+            const prevPageBtn = document.getElementById('prevPage');
+            const nextPageBtn = document.getElementById('nextPage');
             const presentationFrame = document.getElementById('presentation-iframe');
 
             if (expandViewBtn) {
@@ -435,6 +439,56 @@
                             presentationFrame.webkitRequestFullscreen();
                         } else if (presentationFrame.msRequestFullscreen) {
                             presentationFrame.msRequestFullscreen();
+                        }
+                    }
+                });
+            }
+
+            // Zoom controls for iframe content
+            if (zoomInBtn) {
+                zoomInBtn.addEventListener('click', function() {
+                    if (presentationFrame && presentationFrame.contentWindow) {
+                        try {
+                            presentationFrame.contentWindow.postMessage({action: 'zoomIn'}, '*');
+                        } catch (e) {
+                            console.log('Zoom in clicked - iframe communication not available');
+                        }
+                    }
+                });
+            }
+
+            if (zoomOutBtn) {
+                zoomOutBtn.addEventListener('click', function() {
+                    if (presentationFrame && presentationFrame.contentWindow) {
+                        try {
+                            presentationFrame.contentWindow.postMessage({action: 'zoomOut'}, '*');
+                        } catch (e) {
+                            console.log('Zoom out clicked - iframe communication not available');
+                        }
+                    }
+                });
+            }
+
+            // Page navigation controls
+            if (prevPageBtn) {
+                prevPageBtn.addEventListener('click', function() {
+                    if (presentationFrame && presentationFrame.contentWindow) {
+                        try {
+                            presentationFrame.contentWindow.postMessage({action: 'prevPage'}, '*');
+                        } catch (e) {
+                            console.log('Previous page clicked - iframe communication not available');
+                        }
+                    }
+                });
+            }
+
+            if (nextPageBtn) {
+                nextPageBtn.addEventListener('click', function() {
+                    if (presentationFrame && presentationFrame.contentWindow) {
+                        try {
+                            presentationFrame.contentWindow.postMessage({action: 'nextPage'}, '*');
+                        } catch (e) {
+                            console.log('Next page clicked - iframe communication not available');
                         }
                     }
                 });
