@@ -241,13 +241,78 @@ document.addEventListener('error', function(e) {
     }
 }, true);
 
+// Presentation Viewer Controls
+document.addEventListener('DOMContentLoaded', function() {
+    const expandViewBtn = document.getElementById('expandView');
+    const fullscreenBtn = document.getElementById('fullscreen');
+    const zoomInBtn = document.getElementById('zoomIn');
+    const zoomOutBtn = document.getElementById('zoomOut');
+    const prevPageBtn = document.getElementById('prevPage');
+    const nextPageBtn = document.getElementById('nextPage');
+    const presentationFrame = document.querySelector('.presentation-frame iframe');
+
+    if (expandViewBtn) {
+        expandViewBtn.addEventListener('click', function() {
+            if (presentationFrame) {
+                presentationFrame.style.height = presentationFrame.style.height === '800px' ? '600px' : '800px';
+                this.innerHTML = presentationFrame.style.height === '800px' ? 
+                    '<i class="fas fa-compress-arrows-alt"></i> Compress View' : 
+                    '<i class="fas fa-expand-arrows-alt"></i> Expand View';
+            }
+        });
+    }
+
+    if (fullscreenBtn) {
+        fullscreenBtn.addEventListener('click', function() {
+            if (presentationFrame) {
+                if (presentationFrame.requestFullscreen) {
+                    presentationFrame.requestFullscreen();
+                } else if (presentationFrame.webkitRequestFullscreen) {
+                    presentationFrame.webkitRequestFullscreen();
+                } else if (presentationFrame.msRequestFullscreen) {
+                    presentationFrame.msRequestFullscreen();
+                }
+            }
+        });
+    }
+
+    // Zoom controls (simulated)
+    if (zoomInBtn) {
+        zoomInBtn.addEventListener('click', function() {
+            console.log('Zoom in clicked');
+            // Add zoom functionality if needed
+        });
+    }
+
+    if (zoomOutBtn) {
+        zoomOutBtn.addEventListener('click', function() {
+            console.log('Zoom out clicked');
+            // Add zoom functionality if needed
+        });
+    }
+
+    // Page navigation (simulated)
+    if (prevPageBtn) {
+        prevPageBtn.addEventListener('click', function() {
+            console.log('Previous page clicked');
+            // Add page navigation if needed
+        });
+    }
+
+    if (nextPageBtn) {
+        nextPageBtn.addEventListener('click', function() {
+            console.log('Next page clicked');
+            // Add page navigation if needed
+        });
+    }
+});
+
 // Add keyboard navigation support
 document.addEventListener('keydown', function(e) {
     // Escape key closes mobile menu
     if (e.key === 'Escape') {
         const navMenu = document.querySelector('.nav-menu');
         const hamburger = document.querySelector('.hamburger');
-        
         if (navMenu && navMenu.classList.contains('active')) {
             navMenu.classList.remove('active');
             hamburger.classList.remove('active');
