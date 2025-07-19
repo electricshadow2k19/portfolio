@@ -910,6 +910,36 @@ body {
         display: flex;
         gap: 1rem;
         flex-wrap: wrap;
+        margin-top: 1rem;
+    }
+
+    .project-links .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 10px 20px;
+        background: #2563eb;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 500;
+        transition: background 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-size: 0.9rem;
+    }
+
+    .project-links .btn:hover {
+        background: #1d4ed8;
+        text-decoration: none;
+    }
+
+    .project-links .btn.btn-secondary {
+        background: #64748b;
+    }
+
+    .project-links .btn.btn-secondary:hover {
+        background: #475569;
     }
 
     /* Timeline Grid */
