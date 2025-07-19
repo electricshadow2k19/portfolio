@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artifacts - Arun Kumar Vallala</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Arun Kumar Vallala</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Welcome</a>
+                </li>
+                <li class="nav-item">
+                    <a href="bio.html" class="nav-link">Bio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="artifacts.html" class="nav-link active">Artifacts</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Artifacts Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">My Artifacts</h1>
+            <p class="page-subtitle">Projects, assignments, and work samples</p>
+        </div>
+    </section>
+
+    <!-- Artifacts Content -->
+    <section class="artifacts-content">
+        <div class="container">
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="academic">Academic</button>
+                <button class="filter-btn" data-filter="personal">Personal</button>
+                <button class="filter-btn" data-filter="ai-ml">AI/ML</button>
+            </div>
+
+            <!-- Artifacts Grid -->
+            <div class="artifacts-grid">
+                <!-- College Assistant Chatbot -->
+                <div class="artifact-card" data-category="academic ai-ml">
+                    <div class="artifact-image">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="artifact-content">
+                        <h3>College Assistant Chatbot</h3>
+                        <p class="artifact-category">Academic Project | AI/ML</p>
+                        <p class="artifact-description">
+                            A comprehensive chatbot designed to assist college students with various queries. 
+                            Built using modern web technologies and AI principles.
+                        </p>
+                        <div class="artifact-tech">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">AI</span>
+                        </div>
+                        <div class="artifact-links">
+                            <a href="artifacts/artifact1.html" class="btn btn-primary">View Details</a>
+                            <a href="../college-assistant-chatbot/" target="_blank" class="btn btn-secondary">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Lab Documentation -->
+                <div class="artifact-card" data-category="academic ai-ml">
+                    <div class="artifact-image">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="artifact-content">
+                        <h3>AI Lab Documentation</h3>
+                        <p class="artifact-category">Academic | Documentation</p>
+                        <p class="artifact-description">
+                            Comprehensive documentation of AI laboratory work, including experiments, 
+                            findings, and detailed analysis of machine learning concepts.
+                        </p>
+                        <div class="artifact-tech">
+                            <span class="tech-tag">Documentation</span>
+                            <span class="tech-tag">Analysis</span>
+                            <span class="tech-tag">Research</span>
+                        </div>
+                        <div class="artifact-links">
+                            <a href="artifacts/artifact2.html" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Evolution Timeline -->
+                <div class="artifact-card" data-category="academic ai-ml">
+                    <div class="artifact-image">
+                        <i class="fas fa-timeline"></i>
+                    </div>
+                    <div class="artifact-content">
+                        <h3>AI Evolution Timeline</h3>
+                        <p class="artifact-category">Academic | Presentation</p>
+                        <p class="artifact-description">
+                            A comprehensive timeline presentation showcasing the evolution of artificial 
+                            intelligence from its inception to modern advancements.
+                        </p>
+                        <div class="artifact-tech">
+                            <span class="tech-tag">PowerPoint</span>
+                            <span class="tech-tag">Research</span>
+                            <span class="tech-tag">Presentation</span>
+                        </div>
+                        <div class="artifact-links">
+                            <a href="artifacts/artifact3.html" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal Assessment - Leading Change -->
+                <div class="artifact-card" data-category="academic">
+                    <div class="artifact-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="artifact-content">
+                        <h3>Personal Assessment - Leading Change</h3>
+                        <p class="artifact-category">Academic | Assessment</p>
+                        <p class="artifact-description">
+                            A detailed personal assessment focusing on leadership skills and the ability 
+                            to lead change in organizational contexts.
+                        </p>
+                        <div class="artifact-tech">
+                            <span class="tech-tag">Assessment</span>
+                            <span class="tech-tag">Leadership</span>
+                            <span class="tech-tag">Analysis</span>
+                        </div>
+                        <div class="artifact-links">
+                            <a href="artifacts/artifact4.html" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Latest Advancements -->
+                <div class="artifact-card" data-category="academic ai-ml">
+                    <div class="artifact-image">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="artifact-content">
+                        <h3>AI Latest Advancements</h3>
+                        <p class="artifact-category">Academic | Research</p>
+                        <p class="artifact-description">
+                            Research document covering the latest advancements in artificial intelligence, 
+                            including emerging technologies and future trends.
+                        </p>
+                        <div class="artifact-tech">
+                            <span class="tech-tag">Research</span>
+                            <span class="tech-tag">AI Trends</span>
+                            <span class="tech-tag">Analysis</span>
+                        </div>
+                        <div class="artifact-links">
+                            <a href="artifacts/artifact5.html" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Website -->
+                <div class="artifact-card" data-category="personal">
+                    <div class="artifact-image">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="artifact-content">
+                        <h3>Portfolio Website</h3>
+                        <p class="artifact-category">Personal | Web Development</p>
+                        <p class="artifact-description">
+                            A modern, responsive portfolio website showcasing my work, skills, and projects. 
+                            Built with HTML, CSS, and JavaScript.
+                        </p>
+                        <div class="artifact-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="artifact-links">
+                            <a href="artifacts/artifact6.html" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Arun Kumar Vallala</h3>
+                    <p>AI/ML Student & Enthusiast</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://sites.google.com/view/arunkumarvallala" target="_blank">
+                            <i class="fas fa-globe"></i>
+                        </a>
+                        <a href="#" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Arun Kumar Vallala. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html> 
