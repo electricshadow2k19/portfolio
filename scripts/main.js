@@ -46,6 +46,41 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Discussion Filtering
+    const discussionFilterButtons = document.querySelectorAll('.discussions-content .filter-btn');
+    const discussionTiles = document.querySelectorAll('.discussion-tile');
+
+    if (discussionFilterButtons.length > 0 && discussionTiles.length > 0) {
+        console.log('Found discussion filter buttons:', discussionFilterButtons.length);
+        console.log('Found discussion tiles:', discussionTiles.length);
+        
+        discussionFilterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+                console.log('Filter clicked:', filter);
+                
+                // Update active button
+                discussionFilterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+
+                // Filter discussion tiles
+                discussionTiles.forEach(tile => {
+                    const categories = tile.getAttribute('data-category').split(' ');
+                    console.log('Tile categories:', categories, 'Filter:', filter);
+                    
+                    if (filter === 'all' || categories.includes(filter)) {
+                        tile.style.display = 'block';
+                        tile.style.animation = 'fadeIn 0.5s ease-in';
+                        console.log('Showing tile:', tile.querySelector('h3').textContent);
+                    } else {
+                        tile.style.display = 'none';
+                        console.log('Hiding tile:', tile.querySelector('h3').textContent);
+                    }
+                });
+            });
+        });
+    }
+
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
