@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI/ML Fundamentals Quiz - Arun Kumar Vallala</title>
+    <title>Deep Learning & Neural Networks Quiz - Arun Kumar Vallala</title>
     <link rel="stylesheet" href="../styles/main.css?v=2">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -37,8 +37,8 @@
     <!-- Quiz Header -->
     <section class="page-header">
         <div class="container">
-            <h1 class="page-title">AI/ML Fundamentals Quiz</h1>
-            <p class="page-subtitle">Assessment of core artificial intelligence and machine learning concepts</p>
+            <h1 class="page-title">Deep Learning & Neural Networks Quiz</h1>
+            <p class="page-subtitle">Assessment of neural networks, deep learning, and AI fundamentals</p>
             <div class="breadcrumb">
                 <a href="../quizzes.html">← Back to Quizzes</a>
             </div>
@@ -70,9 +70,9 @@
                     <div class="artifact-hero-content">
                         <h2>Quiz Overview</h2>
                         <p>
-                            This comprehensive assessment evaluated my understanding of fundamental AI/ML concepts, 
-                            including neural networks, machine learning algorithms, and artificial intelligence principles. 
-                            The quiz tested both theoretical knowledge and practical application of AI/ML concepts.
+                            This comprehensive assessment evaluated my understanding of deep learning and neural network concepts, 
+                            including activation functions, overfitting, GANs, CNNs, and backpropagation. 
+                            The quiz tested both theoretical knowledge and practical understanding of neural network fundamentals.
                         </p>
                         
                         <!-- Value Proposition -->
@@ -201,28 +201,101 @@
                         </div>
                     </div>
 
-                    <!-- Sample Questions -->
+                    <!-- Actual Quiz Questions -->
                     <div class="artifact-section">
-                        <h3><i class="fas fa-question-circle"></i> Sample Questions & Answers</h3>
+                        <h3><i class="fas fa-question-circle"></i> Deep Learning & Neural Networks Quiz</h3>
+                        <div class="outcomes-card">
+                            <h3>Quiz Overview</h3>
+                            <ul>
+                                <li><strong>Quiz Title:</strong> Deep Learning and Neural Networks</li>
+                                <li><strong>Total Questions:</strong> 15</li>
+                                <li><strong>Points per Question:</strong> 2 points</li>
+                                <li><strong>Total Possible Score:</strong> 30 points</li>
+                                <li><strong>Topics Covered:</strong> Neural networks, deep learning, activation functions, GANs, CNNs, backpropagation</li>
+                            </ul>
+                        </div>
+                        
                         <div class="challenges-list">
                             <div class="challenge-item">
-                                <h4>Question 1: Neural Network Architecture</h4>
-                                <p><strong>Q:</strong> What is the primary purpose of the activation function in a neural network?</p>
-                                <h5>My Answer:</h5>
-                                <p>Activation functions introduce non-linearity into the network, allowing it to learn complex patterns and relationships in the data. Without activation functions, the network would only be able to learn linear relationships.</p>
+                                <h4>Question 1: Overfitting in Neural Networks</h4>
+                                <p><strong>Q:</strong> What is overfitting in neural networks?</p>
+                                <p><strong>Options:</strong></p>
+                                <ul>
+                                    <li>a) When a model is not trained enough</li>
+                                    <li><strong>b) When a model is too complex and fits the training data too closely</strong></li>
+                                    <li>c) When there is not enough data for training</li>
+                                    <li>d) When a model performs well on new data</li>
+                                </ul>
+                                <h5>Correct Answer: B</h5>
+                                <p><strong>Explanation:</strong> Overfitting occurs when a model learns the training data too well, including noise and irrelevant patterns, leading to poor generalization on new data.</p>
                             </div>
+                            
                             <div class="challenge-item">
-                                <h4>Question 2: Machine Learning Types</h4>
-                                <p><strong>Q:</strong> Explain the difference between supervised and unsupervised learning with examples.</p>
-                                <h5>My Answer:</h5>
-                                <p>Supervised learning uses labeled data to train models (e.g., classifying emails as spam/not spam). Unsupervised learning finds patterns in unlabeled data (e.g., customer segmentation). Supervised learning has a target variable, while unsupervised learning discovers hidden structures.</p>
+                                <h4>Question 2: Activation Functions</h4>
+                                <p><strong>Q:</strong> Which of these is a commonly used activation function in neural networks?</p>
+                                <p><strong>Options:</strong></p>
+                                <ul>
+                                    <li>a) Blockchain</li>
+                                    <li><strong>b) ReLU</strong></li>
+                                    <li>c) HTML</li>
+                                    <li>d) SQL</li>
+                                </ul>
+                                <h5>Correct Answer: B</h5>
+                                <p><strong>Explanation:</strong> ReLU (Rectified Linear Unit) is one of the most popular activation functions due to its computational efficiency and ability to handle the vanishing gradient problem.</p>
                             </div>
+                            
                             <div class="challenge-item">
-                                <h4>Question 3: AI Ethics</h4>
-                                <p><strong>Q:</strong> What are the key considerations for ensuring AI fairness?</p>
-                                <h5>My Answer:</h5>
-                                <p>Key considerations include: diverse training data representation, bias detection and mitigation, transparent decision-making processes, regular model auditing, and ensuring the AI system doesn't discriminate based on protected characteristics like race, gender, or age.</p>
+                                <h4>Question 3: Deep Learning Advantage</h4>
+                                <p><strong>Q:</strong> What is the main advantage of using Deep Learning?</p>
+                                <p><strong>Options:</strong></p>
+                                <ul>
+                                    <li><strong>a) It can solve complex problems by learning from large datasets</strong></li>
+                                    <li>b) It doesn't need neural networks</li>
+                                    <li>c) It is faster than traditional programming</li>
+                                    <li>d) It requires no data to train</li>
+                                </ul>
+                                <h5>Correct Answer: A</h5>
+                                <p><strong>Explanation:</strong> Deep learning's primary advantage is its ability to automatically learn complex patterns and representations from large amounts of data.</p>
                             </div>
+                            
+                            <div class="challenge-item">
+                                <h4>Question 4: GAN Generator Role</h4>
+                                <p><strong>Q:</strong> In a Generative Adversarial Network (GAN), what is the role of the generator?</p>
+                                <p><strong>Options:</strong></p>
+                                <ul>
+                                    <li><strong>a) To generate synthetic data resembling real data</strong></li>
+                                    <li>b) To cluster data into categories</li>
+                                    <li>c) To reduce the dimensionality of data</li>
+                                    <li>d) To evaluate the authenticity of data samples</li>
+                                </ul>
+                                <h5>Correct Answer: A</h5>
+                                <p><strong>Explanation:</strong> The generator in a GAN creates synthetic data samples that should be indistinguishable from real data.</p>
+                            </div>
+                            
+                            <div class="challenge-item">
+                                <h4>Question 5: Image Recognition Networks</h4>
+                                <p><strong>Q:</strong> What type of network is commonly used for image recognition?</p>
+                                <p><strong>Options:</strong></p>
+                                <ul>
+                                    <li>a) Feedforward Neural Networks</li>
+                                    <li>b) Random Forests</li>
+                                    <li>c) Recurrent Neural Networks</li>
+                                    <li><strong>d) Convolutional Neural Networks</strong></li>
+                                </ul>
+                                <h5>Correct Answer: D</h5>
+                                <p><strong>Explanation:</strong> CNNs are specifically designed for processing grid-like data such as images, using convolutional layers to detect spatial patterns.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="outcomes-card">
+                            <h3>Key Learning Areas Demonstrated</h3>
+                            <ul>
+                                <li><strong>Neural Network Fundamentals:</strong> Understanding of activation functions, loss functions, and network architecture</li>
+                                <li><strong>Deep Learning Concepts:</strong> Knowledge of overfitting, backpropagation, and deep network characteristics</li>
+                                <li><strong>Specialized Networks:</strong> Understanding of CNNs for image recognition and GANs for generative tasks</li>
+                                <li><strong>Practical Implementation:</strong> Awareness of computational requirements (GPUs) and training challenges</li>
+                                <li><strong>Historical Context:</strong> Understanding of deep learning's recent emergence and evolution</li>
+                            </ul>
                         </div>
                     </div>
 
