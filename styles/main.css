@@ -505,6 +505,38 @@ body {
     font-weight: 600;
 }
 
+/* Academic Progress Styling */
+.academic-progress {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    border-left: 4px solid #2563eb;
+}
+
+.progress-item {
+    margin-bottom: 0.75rem;
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.progress-item:last-child {
+    margin-bottom: 0;
+}
+
+.progress-item.completed {
+    color: #166534;
+}
+
+.progress-item.in-progress {
+    color: #92400e;
+}
+
+.progress-item.planned {
+    color: #1e40af;
+}
+
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -1176,6 +1208,12 @@ body {
     padding: 2rem 0;
     background: #f8fafc;
     border-top: 1px solid #e2e8f0;
+}
+
+/* Top navigation buttons */
+.navigation-buttons:first-of-type {
+    border-top: none;
+    border-bottom: 1px solid #e2e8f0;
 }
 
 .nav-buttons {
