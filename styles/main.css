@@ -1050,6 +1050,48 @@ body {
     font-weight: 600;
 }
 
+/* Navigation Buttons */
+.navigation-buttons {
+    padding: 2rem 0;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.nav-buttons .btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.nav-buttons .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+    .nav-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
 .artifact-tech {
     display: flex;
     gap: 0.5rem;
