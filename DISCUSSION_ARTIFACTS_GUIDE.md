@@ -2,7 +2,7 @@
 
 ## Overview
 
-This guide explains how to add your discussion posts and reflections as artifacts to your professional portfolio. This approach showcases your critical thinking, learning journey, and ability to engage with course concepts meaningfully.
+This guide explains how to add your discussion posts and reflections as artifacts to your professional portfolio. The system uses a single "Discussions & Reflections" artifact card that leads to a dedicated page showcasing multiple discussion tiles, each linking to detailed individual discussion pages.
 
 ## Why Include Discussion Posts as Artifacts?
 
@@ -32,12 +32,20 @@ For each discussion post you want to showcase:
 2. **Customize the content**: Replace all `[placeholder]` text with your actual content
 3. **Save with descriptive name**: Use format like `ai-ethics-discussion.html` or `ml-applications-analysis.html`
 
-### Step 3: Update the Main Artifacts Page
+### Step 3: Add Discussion Tiles to the Discussions Page
 
-The artifacts page (`artifacts.html`) has been updated with:
-- New filter category: "Reflections & Discussions"
-- Example discussion post cards
-- Proper categorization and tagging
+The discussions page (`discussions.html`) contains:
+- Multiple discussion tiles in a grid layout
+- Filter tabs to categorize discussions
+- Each tile links to its detailed discussion page
+- Easy to add new discussion tiles
+
+### Step 4: The Main Artifacts Page
+
+The artifacts page (`artifacts.html`) now contains:
+- Single "Discussions & Reflections" artifact card
+- Links to the dedicated discussions page
+- Clean, organized presentation
 
 ## Template Structure
 
@@ -140,27 +148,28 @@ portfolio/
 │   ├── ai-ethics-discussion.html
 │   ├── ml-applications-analysis.html
 │   └── neural-networks-deep-dive.html
-├── artifacts.html (updated with new filter)
+├── discussions.html (dedicated discussions page)
+├── artifacts.html (updated with single discussion card)
 └── styles/main.css (updated with discussion styles)
 ```
 
 ### CSS Classes Added
-- `.discussion-content` - Main container
-- `.discussion-section` - Individual sections
-- `.overview-card` - Course/date/topic info
-- `.insights-grid` - Key insights layout
-- `.outcomes-card` - Learning outcomes
-- `.context-card` - Course context
+- `.discussions-content` - Main discussions page container
+- `.discussions-grid` - Grid layout for discussion tiles
+- `.discussion-card` - Individual discussion tile styling
+- `.discussion-content` - Content within discussion tiles
+- `.discussion-meta` - Date and course information
+- `.discussion-links` - Action buttons for each tile
 
 ## Submission Process
 
 ### For Each Discussion Post:
 
 1. **Create the HTML page** using the template
-2. **Update artifacts.html** to include the new discussion card
-3. **Test the links** to ensure everything works
-4. **Submit reflection to instructor** via Brightspace (separate from portfolio)
-5. **Update portfolio** with the new artifact
+2. **Add discussion tile** to discussions.html
+3. **Update the link** in the discussion tile to point to your new page
+4. **Test the links** to ensure everything works
+5. **Submit reflection to instructor** via Brightspace (separate from portfolio)
 
 ### Reflection Requirements (for Instructor):
 
@@ -181,10 +190,11 @@ Remember to submit your reflection for each artifact to your instructor through 
 ## Next Steps
 
 1. Review your discussion posts and identify the best ones
-2. Create individual pages for each selected discussion
-3. Update the main artifacts page with new cards
-4. Submit reflections to your instructor via Brightspace
-5. Test all links and ensure proper navigation
-6. Consider adding more discussion posts as you complete new courses
+2. Create individual pages for each selected discussion using the template
+3. Add discussion tiles to the discussions.html page
+4. Update the links in each tile to point to your discussion pages
+5. Submit reflections to your instructor via Brightspace
+6. Test all links and ensure proper navigation
+7. Consider adding more discussion posts as you complete new courses
 
 This approach will significantly enhance your portfolio by showcasing not just what you can build, but how you think, learn, and grow as a professional in the AI/ML field. 
