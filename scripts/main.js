@@ -24,6 +24,10 @@
             console.log(`Link ${index + 1}:`, link.textContent, 'href:', link.href);
             link.addEventListener('click', function(e) {
                 console.log('Link clicked:', this.textContent, 'href:', this.href);
+                // Prevent any default behavior that might be interfering
+                e.preventDefault();
+                // Manually navigate to the href
+                window.location.href = this.href;
             });
         });
 
