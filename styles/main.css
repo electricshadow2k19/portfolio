@@ -640,9 +640,202 @@ body {
     color: white;
 }
 
-.artifact-content {
-    padding: 1.5rem;
-}
+    .artifact-content {
+        padding: 1.5rem;
+    }
+
+    /* Discussion Content Styles */
+    .discussion-content {
+        padding: 80px 0;
+    }
+
+    .discussion-grid {
+        display: grid;
+        gap: 2rem;
+    }
+
+    .discussion-section {
+        background: #fff;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .discussion-section h2 {
+        color: #1e293b;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 0.5rem;
+    }
+
+    .overview-card {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .overview-item h3 {
+        color: #64748b;
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.5rem;
+    }
+
+    .overview-item p {
+        color: #1e293b;
+        font-weight: 500;
+    }
+
+    .concept-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .concept-tag {
+        background: #dbeafe;
+        color: #1e40af;
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+
+    .prompt-card {
+        background: #f8fafc;
+        border-left: 4px solid #2563eb;
+        padding: 1.5rem;
+        border-radius: 0 8px 8px 0;
+    }
+
+    .prompt-card p {
+        color: #1e293b;
+        font-style: italic;
+        line-height: 1.7;
+    }
+
+    .insights-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .insight-card {
+        background: #f8fafc;
+        padding: 1.5rem;
+        border-radius: 8px;
+        border: 1px solid #e2e8f0;
+    }
+
+    .insight-card h3 {
+        color: #1e293b;
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    .insight-card ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .insight-card li {
+        color: #475569;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #e2e8f0;
+        position: relative;
+        padding-left: 1.5rem;
+    }
+
+    .insight-card li:last-child {
+        border-bottom: none;
+    }
+
+    .insight-card li::before {
+        content: '•';
+        color: #2563eb;
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+    }
+
+    .outcomes-card {
+        background: #f0f9ff;
+        padding: 1.5rem;
+        border-radius: 8px;
+        border: 1px solid #bae6fd;
+    }
+
+    .outcomes-card h3 {
+        color: #0c4a6e;
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .outcomes-card h3:first-child {
+        margin-top: 0;
+    }
+
+    .outcomes-card ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 1.5rem;
+    }
+
+    .outcomes-card li {
+        color: #0c4a6e;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #bae6fd;
+        position: relative;
+        padding-left: 1.5rem;
+    }
+
+    .outcomes-card li:last-child {
+        border-bottom: none;
+    }
+
+    .outcomes-card li::before {
+        content: '✓';
+        color: #0284c7;
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+    }
+
+    .outcomes-card p {
+        color: #0c4a6e;
+        line-height: 1.7;
+    }
+
+    .context-card {
+        background: #fef3c7;
+        padding: 1.5rem;
+        border-radius: 8px;
+        border: 1px solid #fcd34d;
+    }
+
+    .context-card h3 {
+        color: #92400e;
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .context-card h3:first-child {
+        margin-top: 0;
+    }
+
+    .context-card p {
+        color: #92400e;
+        line-height: 1.7;
+    }
 
 .artifact-content h3 {
     font-size: 1.25rem;
