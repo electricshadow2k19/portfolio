@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletters - Arun Kumar Vallala</title>
+    <link rel="stylesheet" href="styles/main.css?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .newsletter-preview {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 30px 0;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-preview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="60" cy="30" r="1.2" fill="rgba(255,255,255,0.1)"/><circle cx="30" cy="60" r="0.8" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+
+        .newsletter-preview h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .newsletter-preview p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-preview .date-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 1em;
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .newsletters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .newsletter-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 2px solid #f0f0f0;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .newsletter-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .newsletter-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            border-color: #667eea;
+        }
+
+        .newsletter-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .newsletter-icon {
+            font-size: 4em;
+            margin-bottom: 15px;
+            display: block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .newsletter-title {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .newsletter-date {
+            color: #666;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        .newsletter-description {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .newsletter-features {
+            margin-bottom: 25px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            color: #666;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .feature-list li:before {
+            content: "📊";
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+
+        .newsletter-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+            justify-content: center;
+            min-width: 120px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .coming-soon {
+            opacity: 0.6;
+            position: relative;
+        }
+
+        .coming-soon::after {
+            content: 'Coming Soon';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff6b6b;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .coming-soon .btn {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .newsletter-preview h2 {
+                font-size: 2em;
+            }
+            
+            .newsletters-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-links {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Arun Kumar Vallala</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Welcome</a>
+                </li>
+                <li class="nav-item">
+                    <a href="bio.html" class="nav-link">Bio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="artifacts.html" class="nav-link">Artifacts</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Monthly Technology Newsletters</h1>
+            <p class="page-subtitle">Professional business newsletters showcasing AI advancements and industry insights</p>
+        </div>
+    </section>
+
+    <!-- Newsletter Preview -->
+    <section class="project-content">
+        <div class="container">
+            <div class="newsletter-preview">
+                <h2>📰 Monthly Technology Newsletters</h2>
+                <p>Professional business newsletters covering the latest AI advancements, industry trends, and commercial applications</p>
+                <div class="date-badge">Updated Monthly | Business Intelligence</div>
+            </div>
+
+            <!-- Newsletters Grid -->
+            <div class="newsletters-grid">
+                <!-- August 2025 Newsletter -->
+                <div class="newsletter-card">
+                    <div class="newsletter-header">
+                        <span class="newsletter-icon">🚀</span>
+                        <h3 class="newsletter-title">AI Unleashed</h3>
+                        <p class="newsletter-date">August 2025 Edition</p>
+                    </div>
+                    <div class="newsletter-description">
+                        The Future is Now - How the Latest Advances Are Reshaping Industries. Features GPT-5 and Agentic AI breakthroughs, industry spotlights, and market impact analysis.
+                    </div>
+                    <div class="newsletter-features">
+                        <ul class="feature-list">
+                            <li>GPT-5 & Agentic AI Analysis</li>
+                            <li>Industry Spotlights (Tech, Finance, Healthcare)</li>
+                            <li>Market Impact Statistics</li>
+                            <li>Interactive Charts & Visualizations</li>
+                            <li>Success Stories & Case Studies</li>
+                        </ul>
+                    </div>
+                    <div class="newsletter-links">
+                        <a href="../../WS6/AI_Unleashed_Newsletter_Aug2025.html" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-external-link-alt"></i>
+                            View Newsletter
+                        </a>
+                        <a href="../../WS6/AI_Unleashed_Newsletter.pdf" target="_blank" class="btn btn-secondary">
+                            <i class="fas fa-file-pdf"></i>
+                            Download PDF
+                        </a>
+                    </div>
+                </div>
+
+                <!-- September 2025 Newsletter -->
+                <div class="newsletter-card coming-soon">
+                    <div class="newsletter-header">
+                        <span class="newsletter-icon">🤖</span>
+                        <h3 class="newsletter-title">AI Revolution</h3>
+                        <p class="newsletter-date">September 2025 Edition</p>
+                    </div>
+                    <div class="newsletter-description">
+                        Autonomous Systems and the Future of Work. Exploring the latest developments in autonomous AI systems, workplace transformation, and emerging AI regulations.
+                    </div>
+                    <div class="newsletter-features">
+                        <ul class="feature-list">
+                            <li>Autonomous AI Systems</li>
+                            <li>Workplace Transformation</li>
+                            <li>AI Regulation Updates</li>
+                            <li>Industry Adoption Trends</li>
+                            <li>Future of Work Analysis</li>
+                        </ul>
+                    </div>
+                    <div class="newsletter-links">
+                        <a href="#" class="btn btn-primary">
+                            <i class="fas fa-clock"></i>
+                            Coming Soon
+                        </a>
+                        <a href="#" class="btn btn-secondary">
+                            <i class="fas fa-bell"></i>
+                            Notify Me
+                        </a>
+                    </div>
+                </div>
+
+                <!-- October 2025 Newsletter -->
+                <div class="newsletter-card coming-soon">
+                    <div class="newsletter-header">
+                        <span class="newsletter-icon">🔬</span>
+                        <h3 class="newsletter-title">AI Innovation</h3>
+                        <p class="newsletter-date">October 2025 Edition</p>
+                    </div>
+                    <div class="newsletter-description">
+                        Breakthrough Technologies and Commercial Applications. Deep dive into cutting-edge AI research, breakthrough technologies, and their real-world business applications.
+                    </div>
+                    <div class="newsletter-features">
+                        <ul class="feature-list">
+                            <li>Breakthrough Technologies</li>
+                            <li>Research & Development</li>
+                            <li>Commercial Applications</li>
+                            <li>Investment Trends</li>
+                            <li>Startup Spotlight</li>
+                        </ul>
+                    </div>
+                    <div class="newsletter-links">
+                        <a href="#" class="btn btn-primary">
+                            <i class="fas fa-clock"></i>
+                            Coming Soon
+                        </a>
+                        <a href="#" class="btn btn-secondary">
+                            <i class="fas fa-bell"></i>
+                            Notify Me
+                        </a>
+                    </div>
+                </div>
+
+                <!-- November 2025 Newsletter -->
+                <div class="newsletter-card coming-soon">
+                    <div class="newsletter-header">
+                        <span class="newsletter-icon">🌐</span>
+                        <h3 class="newsletter-title">AI Global Impact</h3>
+                        <p class="newsletter-date">November 2025 Edition</p>
+                    </div>
+                    <div class="newsletter-description">
+                        Global AI Adoption and Economic Impact. Comprehensive analysis of AI adoption across different regions, economic implications, and global market trends.
+                    </div>
+                    <div class="newsletter-features">
+                        <ul class="feature-list">
+                            <li>Global AI Adoption</li>
+                            <li>Economic Impact Analysis</li>
+                            <li>Regional Market Trends</li>
+                            <li>International Policies</li>
+                            <li>Cross-border Applications</li>
+                        </ul>
+                    </div>
+                    <div class="newsletter-links">
+                        <a href="#" class="btn btn-primary">
+                            <i class="fas fa-clock"></i>
+                            Coming Soon
+                        </a>
+                        <a href="#" class="btn btn-secondary">
+                            <i class="fas fa-bell"></i>
+                            Notify Me
+                        </a>
+                    </div>
+                </div>
+
+                <!-- December 2025 Newsletter -->
+                <div class="newsletter-card coming-soon">
+                    <div class="newsletter-header">
+                        <span class="newsletter-icon">🎯</span>
+                        <h3 class="newsletter-title">AI Year in Review</h3>
+                        <p class="newsletter-date">December 2025 Edition</p>
+                    </div>
+                    <div class="newsletter-description">
+                        2025 AI Year in Review and 2026 Predictions. Comprehensive year-end analysis of AI developments, major milestones, and predictions for the coming year.
+                    </div>
+                    <div class="newsletter-features">
+                        <ul class="feature-list">
+                            <li>2025 Year in Review</li>
+                            <li>Major AI Milestones</li>
+                            <li>Industry Transformations</li>
+                            <li>2026 Predictions</li>
+                            <li>Strategic Insights</li>
+                        </ul>
+                    </div>
+                    <div class="newsletter-links">
+                        <a href="#" class="btn btn-primary">
+                            <i class="fas fa-clock"></i>
+                            Coming Soon
+                        </a>
+                        <a href="#" class="btn btn-secondary">
+                            <i class="fas fa-bell"></i>
+                            Notify Me
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back to Artifacts -->
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="artifacts.html" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Artifacts
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Arun Kumar Vallala</h3>
+                    <p>AI/ML Student & Enthusiast</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/v-arun-601548126/" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/electricshadow2k19" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Arun Kumar Vallala. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html> 
