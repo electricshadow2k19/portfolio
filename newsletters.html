@@ -78,6 +78,7 @@
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(10px);
         }
 
         .newsletter-card::before {
@@ -100,6 +101,7 @@
             transform: translateY(-10px);
             box-shadow: 0 25px 50px rgba(0,0,0,0.15);
             border-color: #667eea;
+            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.98));
         }
 
         .newsletter-header {
@@ -167,9 +169,9 @@
 
         .btn {
             padding: 12px 24px;
-            border-radius: 8px;
+            border-radius: 12px;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
@@ -177,28 +179,50 @@
             flex: 1;
             justify-content: center;
             min-width: 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn-primary {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+            background: linear-gradient(135deg, #5a6fd8, #6a4190);
         }
 
         .btn-secondary {
             background: white;
             color: #667eea;
             border: 2px solid #667eea;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
         }
 
         .btn-secondary:hover {
-            background: #667eea;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
+            border-color: transparent;
         }
 
         .coming-soon {
@@ -268,7 +292,12 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1 class="page-title">Monthly Technology Newsletters</h1>
+            <div style="margin-bottom: 20px;">
+                <a href="artifacts.html" style="color: #667eea; text-decoration: none; font-weight: 500;">
+                    <i class="fas fa-arrow-left"></i> Back to Artifacts
+                </a>
+            </div>
+            <h1 class="page-title">📰 Monthly Technology Newsletters</h1>
             <p class="page-subtitle">Professional business newsletters showcasing AI advancements and industry insights</p>
         </div>
     </section>
@@ -303,16 +332,16 @@
                             <li>Success Stories & Case Studies</li>
                         </ul>
                     </div>
-                    <div class="newsletter-links">
-                        <a href="../../WS6/AI_Unleashed_Newsletter_Aug2025.html" target="_blank" class="btn btn-primary">
-                            <i class="fas fa-external-link-alt"></i>
-                            View Newsletter
-                        </a>
-                        <a href="../../WS6/AI_Unleashed_Newsletter.pdf" target="_blank" class="btn btn-secondary">
-                            <i class="fas fa-file-pdf"></i>
-                            Download PDF
-                        </a>
-                    </div>
+                                         <div class="newsletter-links">
+                         <a href="artifacts/AI_Unleashed_Newsletter_Aug2025.html" target="_blank" class="btn btn-primary">
+                             <i class="fas fa-external-link-alt"></i>
+                             View Newsletter
+                         </a>
+                         <a href="artifacts/AI_Unleased_Nesletter_Aug2025.pdf" target="_blank" class="btn btn-secondary">
+                             <i class="fas fa-file-pdf"></i>
+                             Download PDF
+                         </a>
+                     </div>
                 </div>
 
                 <!-- September 2025 Newsletter -->
