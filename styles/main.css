@@ -1255,17 +1255,17 @@ body {
 }
 
 .nav-buttons .btn.btn-primary {
-    background: white;
-    color: #2d3748;
-    border: 2px solid #e2e8f0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 
 .nav-buttons .btn.btn-primary:hover {
-    background: #f8fafc;
-    color: #1a202c;
-    border-color: #cbd5e1;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #5a6fd8, #6a4190);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
 }
 
 .nav-buttons .btn:hover {
