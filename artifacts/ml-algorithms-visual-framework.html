@@ -112,6 +112,16 @@
         .algo-card-body {
             padding: 1.25rem;
         }
+        .algo-type-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.25rem 0.6rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+        }
+        .algo-card.supervised .algo-type-badge { background: #dbeafe; color: #1d4ed8; }
+        .algo-card.unsupervised .algo-type-badge { background: #d1fae5; color: #047857; }
         .algo-domain-tags {
             display: flex;
             flex-wrap: wrap;
@@ -158,6 +168,145 @@
             line-height: 1.7;
             margin-bottom: 1rem;
         }
+        
+        /* Visual Hierarchy Diagram */
+        .framework-diagram {
+            background: #fff;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+        }
+        .diagram-node {
+            text-align: center;
+            padding: 1rem 1.5rem;
+            margin: 0.5rem auto;
+            border-radius: 12px;
+            font-weight: 700;
+            max-width: 280px;
+        }
+        .diagram-node-ai {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            font-size: 1.25rem;
+        }
+        .diagram-node-ml {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-size: 1.15rem;
+        }
+        .diagram-split {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+        .diagram-branch {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+        .diagram-connector {
+            font-size: 1.5rem;
+            color: #94a3b8;
+            margin: 0.5rem 0;
+        }
+        .diagram-node-supervised {
+            background: rgba(66, 153, 225, 0.2);
+            border: 2px solid #4299e1;
+            color: #2b6cb0;
+        }
+        .diagram-node-unsupervised {
+            background: rgba(72, 187, 120, 0.2);
+            border: 2px solid #48bb78;
+            color: #276749;
+        }
+        .diagram-algos {
+            font-size: 0.85rem;
+            margin-top: 0.75rem;
+            line-height: 1.6;
+            color: #475569;
+        }
+        .diagram-algos strong { color: #1e293b; }
+        
+        /* Tree Diagram */
+        .tree-diagram {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            border: 1px solid #e2e8f0;
+        }
+        .tree-diagram .tree-root { color: #1e3a8a; font-weight: 700; }
+        .tree-diagram .tree-ml { color: #6366f1; font-weight: 600; }
+        .tree-diagram .tree-supervised { color: #2563eb; }
+        .tree-diagram .tree-unsupervised { color: #059669; }
+        .tree-diagram .tree-deep { color: #7c3aed; }
+        .tree-diagram .tree-domain { color: #b45309; font-style: italic; }
+        
+        /* Generative AI Section */
+        .genai-section {
+            background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+            border: 2px solid #ed8936;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        .genai-section h3 { color: #9a3412; }
+        .genai-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .genai-card {
+            background: white;
+            padding: 1.25rem;
+            border-radius: 12px;
+            border-left: 4px solid #ed8936;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .genai-card h4 { color: #9a3412; margin-bottom: 0.5rem; font-size: 1rem; }
+        .genai-card p { font-size: 0.85rem; color: #475569; margin: 0; }
+        .genai-use-cases {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+        .genai-use-badge {
+            background: #fed7aa;
+            color: #9a3412;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        /* Intro Title */
+        .framework-intro {
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-bottom: 2rem;
+        }
+        .framework-intro h2 {
+            font-size: 1.75rem;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        .framework-intro p {
+            font-size: 1.05rem;
+            color: #475569;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
     </style>
 </head>
 <body>
@@ -189,8 +338,8 @@
     <!-- Artifact Header -->
     <section class="page-header">
         <div class="container">
-            <h1 class="page-title">Machine Learning Algorithms Visual Framework</h1>
-            <p class="page-subtitle">Assignment 1.5 | AI/ML Portfolio Artifact</p>
+            <h1 class="page-title">Machine Learning Algorithms & Application Domains Framework</h1>
+            <p class="page-subtitle">A visual hierarchy mapping AI → ML → algorithms → application domains</p>
         </div>
     </section>
 
@@ -214,12 +363,11 @@
                         <i class="fas fa-project-diagram"></i>
                     </div>
                     <div class="artifact-hero-content">
-                        <h2>Visual Framework Overview</h2>
+                        <h2>Machine Learning Algorithms & Application Domains Framework</h2>
                         <p>
-                            A comprehensive visual framework illustrating 10 machine learning algorithms, their learning types, 
-                            application domains, and real-world use cases. This infographic categorizes algorithms across 
-                            Tabular Data, Computer Vision, NLP, and Generative AI—emphasizing the interconnected nature 
-                            of modern AI/ML approaches.
+                            This framework maps the hierarchical relationship between Artificial Intelligence, Machine Learning, 
+                            and their constituent algorithms across supervised and unsupervised paradigms. It provides a visual 
+                            reference for selecting the right algorithm based on data type, task, and application domain.
                         </p>
                         <div class="artifact-value">
                             <strong>Portfolio Value:</strong> This artifact demonstrates my ability to synthesize complex 
@@ -257,22 +405,86 @@
                         </div>
                     </div>
 
-                    <!-- Visual Framework Structure -->
+                    <!-- Visual Hierarchy Diagram -->
                     <div class="artifact-section">
-                        <h3><i class="fas fa-sitemap"></i> Framework Structure</h3>
-                        <div class="framework-hub">Machine Learning Algorithms</div>
-                        <div class="framework-branches">
-                            <div class="branch-card branch-supervised">
-                                <h4><i class="fas fa-graduation-cap"></i> Supervised Learning</h4>
-                                <p><strong>Tabular:</strong> Decision Trees, Random Forests, Gradient Boosting, SVMs</p>
-                                <p><strong>Computer Vision:</strong> CNNs</p>
-                                <p><strong>NLP:</strong> Transformers (GPT, BERT)</p>
+                        <h3><i class="fas fa-sitemap"></i> Visual Hierarchy: AI to Application Domains</h3>
+                        <div class="framework-diagram">
+                            <div class="diagram-node diagram-node-ai">Artificial Intelligence</div>
+                            <div class="diagram-connector">↓</div>
+                            <div class="diagram-node diagram-node-ml">Machine Learning</div>
+                            <div class="diagram-connector">↓</div>
+                            <div class="diagram-split">
+                                <div class="diagram-branch">
+                                    <div class="diagram-node diagram-node-supervised">Supervised Learning</div>
+                                    <div class="diagram-algos">
+                                        <strong>Algorithms:</strong> Decision Trees, Random Forests, Gradient Boosting, SVMs, CNNs, Transformers
+                                    </div>
+                                    <div class="diagram-connector">↓</div>
+                                    <div class="diagram-algos"><strong>Domains:</strong> Tabular, Computer Vision, NLP</div>
+                                </div>
+                                <div class="diagram-branch">
+                                    <div class="diagram-node diagram-node-unsupervised">Unsupervised Learning</div>
+                                    <div class="diagram-algos">
+                                        <strong>Algorithms:</strong> K-means, PCA, GANs, Diffusion Models, VAEs
+                                    </div>
+                                    <div class="diagram-connector">↓</div>
+                                    <div class="diagram-algos"><strong>Domains:</strong> Tabular, Generative AI</div>
+                                </div>
                             </div>
-                            <div class="branch-card branch-unsupervised">
-                                <h4><i class="fas fa-search"></i> Unsupervised Learning</h4>
-                                <p><strong>Tabular:</strong> K-means, PCA</p>
-                                <p><strong>Generative AI:</strong> GANs, Diffusion Models</p>
+                        </div>
+                    </div>
+
+                    <!-- Algorithm Relationship Tree -->
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-project-diagram"></i> Algorithm Relationship Tree</h3>
+                        <div class="tree-diagram">
+                            <div class="tree-root">AI</div>
+                            <div style="padding-left: 1.5rem;">└── <span class="tree-ml">Machine Learning</span></div>
+                            <div style="padding-left: 3rem;">├── <span class="tree-supervised">Supervised</span></div>
+                            <div style="padding-left: 4.5rem;">│   ├── Linear Regression</div>
+                            <div style="padding-left: 4.5rem;">│   ├── Decision Trees</div>
+                            <div style="padding-left: 4.5rem;">│   ├── Random Forest</div>
+                            <div style="padding-left: 4.5rem;">│   ├── Gradient Boosting</div>
+                            <div style="padding-left: 4.5rem;">│   └── SVM</div>
+                            <div style="padding-left: 3rem;">├── <span class="tree-unsupervised">Unsupervised</span></div>
+                            <div style="padding-left: 4.5rem;">│   ├── K-Means</div>
+                            <div style="padding-left: 4.5rem;">│   └── PCA</div>
+                            <div style="padding-left: 3rem;">└── <span class="tree-deep">Deep Learning</span></div>
+                            <div style="padding-left: 4.5rem;">    ├── CNN → <span class="tree-domain">Computer Vision</span></div>
+                            <div style="padding-left: 4.5rem;">    ├── Transformers → <span class="tree-domain">NLP</span></div>
+                            <div style="padding-left: 4.5rem;">    └── GANs / Diffusion → <span class="tree-domain">Generative AI</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Generative AI Section -->
+                    <div class="artifact-section genai-section">
+                        <h3><i class="fas fa-magic"></i> Generative AI Algorithms (Emphasized)</h3>
+                        <p style="margin-bottom: 1rem; color: #78350f;">Generative AI creates new content—text, images, video, or data—from learned patterns. Key algorithms and their applications:</p>
+                        <div class="genai-grid">
+                            <div class="genai-card">
+                                <h4>GPT (Text Generation)</h4>
+                                <p>Decoder-only transformers that predict next tokens autoregressively. Powers ChatGPT, code assistants, and content creation.</p>
                             </div>
+                            <div class="genai-card">
+                                <h4>Diffusion Models</h4>
+                                <p>Image generation by reversing noise. Powers DALL-E, Stable Diffusion, Midjourney for text-to-image creation.</p>
+                            </div>
+                            <div class="genai-card">
+                                <h4>GANs</h4>
+                                <p>Generator + Discriminator adversarial training. Image/video synthesis, deepfakes, art generation, data augmentation.</p>
+                            </div>
+                            <div class="genai-card">
+                                <h4>Variational Autoencoders (VAEs)</h4>
+                                <p>Encode data to latent space, decode to generate. Drug discovery, anomaly detection, data generation.</p>
+                            </div>
+                        </div>
+                        <div class="genai-use-cases">
+                            <span class="genai-use-badge">Chatbots</span>
+                            <span class="genai-use-badge">Code Generation</span>
+                            <span class="genai-use-badge">Image Creation</span>
+                            <span class="genai-use-badge">Drug Discovery</span>
+                            <span class="genai-use-badge">Content Summarization</span>
+                            <span class="genai-use-badge">Video Synthesis</span>
                         </div>
                     </div>
 
@@ -284,7 +496,8 @@
                             <div class="algo-card supervised">
                                 <div class="algo-card-header">Decision Trees</div>
                                 <div class="algo-card-body">
-                                    <div class="algo-domain-tags"><span class="domain-tag domain-tabular">Tabular Data</span></div>
+                                    <span class="algo-type-badge">Type: Supervised</span>
+                                    <div class="algo-domain-tags"><span class="domain-tag domain-tabular">Domain: Tabular Data</span></div>
                                     <div class="algo-use-cases"><strong>Use Cases:</strong> Credit approval, medical diagnosis, customer churn, fraud detection</div>
                                     <div class="algo-explanation">Creates hierarchical decision rules by recursively splitting data on feature values. Maximizes information gain at each split.</div>
                                 </div>
@@ -293,7 +506,8 @@
                             <div class="algo-card supervised">
                                 <div class="algo-card-header">Random Forests</div>
                                 <div class="algo-card-body">
-                                    <div class="algo-domain-tags"><span class="domain-tag domain-tabular">Tabular Data</span></div>
+                                    <span class="algo-type-badge">Type: Supervised</span>
+                                    <div class="algo-domain-tags"><span class="domain-tag domain-tabular">Domain: Tabular Data</span></div>
                                     <div class="algo-use-cases"><strong>Use Cases:</strong> Predictive maintenance, stock prediction, real estate pricing, disease risk</div>
                                     <div class="algo-explanation">Ensemble of Decision Trees with random subsets. Voting/averaging reduces overfitting and improves accuracy.</div>
                                 </div>
@@ -302,7 +516,8 @@
                             <div class="algo-card supervised">
                                 <div class="algo-card-header">Gradient Boosting</div>
                                 <div class="algo-card-body">
-                                    <div class="algo-domain-tags"><span class="domain-tag domain-tabular">Tabular Data</span></div>
+                                    <span class="algo-type-badge">Type: Supervised</span>
+                                    <div class="algo-domain-tags"><span class="domain-tag domain-tabular">Domain: Tabular Data</span></div>
                                     <div class="algo-use-cases"><strong>Use Cases:</strong> Kaggle competitions, CTR prediction, search ranking, insurance claims</div>
                                     <div class="algo-explanation">Sequential models where each corrects previous errors. XGBoost/LightGBM are optimized implementations.</div>
                                 </div>
@@ -311,7 +526,8 @@
                             <div class="algo-card unsupervised">
                                 <div class="algo-card-header">K-means Clustering</div>
                                 <div class="algo-card-body">
-                                    <div class="algo-domain-tags"><span class="domain-tag domain-tabular">Tabular Data</span></div>
+                                    <span class="algo-type-badge">Type: Unsupervised</span>
+                                    <div class="algo-domain-tags"><span class="domain-tag domain-tabular">Domain: Tabular Data</span></div>
                                     <div class="algo-use-cases"><strong>Use Cases:</strong> Customer segmentation, image compression, document clustering, anomaly detection</div>
                                     <div class="algo-explanation">Partitions data into k clusters by iteratively assigning points to nearest centroids. Minimizes within-cluster variance.</div>
                                 </div>
@@ -320,7 +536,8 @@
                             <div class="algo-card supervised">
                                 <div class="algo-card-header">CNNs</div>
                                 <div class="algo-card-body">
-                                    <div class="algo-domain-tags"><span class="domain-tag domain-cv">Computer Vision</span></div>
+                                    <span class="algo-type-badge">Type: Supervised</span>
+                                    <div class="algo-domain-tags"><span class="domain-tag domain-cv">Domain: Computer Vision</span></div>
                                     <div class="algo-use-cases"><strong>Use Cases:</strong> Medical imaging, autonomous vehicles, facial recognition, defect detection</div>
                                     <div class="algo-explanation">Convolutional layers detect local patterns (edges, textures). Hierarchical features from low-level to high-level objects.</div>
                                 </div>
@@ -329,7 +546,8 @@
                             <div class="algo-card supervised">
                                 <div class="algo-card-header">Transformers (GPT, BERT)</div>
                                 <div class="algo-card-body">
-                                    <div class="algo-domain-tags"><span class="domain-tag domain-nlp">NLP</span></div>
+                                    <span class="algo-type-badge">Type: Supervised</span>
+                                    <div class="algo-domain-tags"><span class="domain-tag domain-nlp">Domain: NLP</span></div>
                                     <div class="algo-use-cases"><strong>Use Cases:</strong> Translation, chatbots, summarization, sentiment analysis, content moderation</div>
                                     <div class="algo-explanation">Self-attention processes all words simultaneously. GPT (decoder-only) for generation; BERT (encoder) for understanding.</div>
                                 </div>
@@ -338,7 +556,8 @@
                             <div class="algo-card unsupervised">
                                 <div class="algo-card-header">GANs</div>
                                 <div class="algo-card-body">
-                                    <div class="algo-domain-tags"><span class="domain-tag domain-genai">Generative AI</span><span class="domain-tag domain-cv">CV</span></div>
+                                    <span class="algo-type-badge">Type: Unsupervised</span>
+                                    <div class="algo-domain-tags"><span class="domain-tag domain-genai">Domain: Generative AI</span><span class="domain-tag domain-cv">CV</span></div>
                                     <div class="algo-use-cases"><strong>Use Cases:</strong> Deepfakes, art generation, data augmentation, style transfer, game assets</div>
                                     <div class="algo-explanation">Generator creates fake data; Discriminator distinguishes real from fake. Adversarial training produces realistic outputs.</div>
                                 </div>
@@ -347,7 +566,8 @@
                             <div class="algo-card unsupervised">
                                 <div class="algo-card-header">Diffusion Models</div>
                                 <div class="algo-card-body">
-                                    <div class="algo-domain-tags"><span class="domain-tag domain-genai">Generative AI</span><span class="domain-tag domain-cv">CV</span></div>
+                                    <span class="algo-type-badge">Type: Unsupervised</span>
+                                    <div class="algo-domain-tags"><span class="domain-tag domain-genai">Domain: Generative AI</span><span class="domain-tag domain-cv">CV</span></div>
                                     <div class="algo-use-cases"><strong>Use Cases:</strong> DALL-E, Stable Diffusion, image editing, product design, medical synthesis</div>
                                     <div class="algo-explanation">Learns to reverse noise-adding process. Starts from noise, denoises iteratively to create high-quality images.</div>
                                 </div>
@@ -356,7 +576,8 @@
                             <div class="algo-card supervised">
                                 <div class="algo-card-header">Support Vector Machines</div>
                                 <div class="algo-card-body">
-                                    <div class="algo-domain-tags"><span class="domain-tag domain-tabular">Tabular</span><span class="domain-tag domain-nlp">NLP</span></div>
+                                    <span class="algo-type-badge">Type: Supervised</span>
+                                    <div class="algo-domain-tags"><span class="domain-tag domain-tabular">Domain: Tabular</span><span class="domain-tag domain-nlp">NLP</span></div>
                                     <div class="algo-use-cases"><strong>Use Cases:</strong> Spam detection, image classification, bioinformatics, face detection, stock prediction</div>
                                     <div class="algo-explanation">Finds optimal hyperplane maximizing margin between classes. Kernel functions handle non-linear relationships.</div>
                                 </div>
@@ -365,7 +586,8 @@
                             <div class="algo-card unsupervised">
                                 <div class="algo-card-header">PCA</div>
                                 <div class="algo-card-body">
-                                    <div class="algo-domain-tags"><span class="domain-tag domain-tabular">Tabular Data</span></div>
+                                    <span class="algo-type-badge">Type: Unsupervised</span>
+                                    <div class="algo-domain-tags"><span class="domain-tag domain-tabular">Domain: Tabular Data</span></div>
                                     <div class="algo-use-cases"><strong>Use Cases:</strong> Data visualization, feature engineering, image compression, genomics, risk analysis</div>
                                     <div class="algo-explanation">Identifies principal components capturing maximum variance. Reduces dimensionality while preserving information.</div>
                                 </div>
