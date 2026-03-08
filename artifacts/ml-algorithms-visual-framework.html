@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Algorithms Visual Framework - Assignment 1.5</title>
+    <link rel="stylesheet" href="../styles/main.css?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Algorithm Framework Specific Styles */
+        .framework-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .legend-supervised { background: #4299e1; }
+        .legend-unsupervised { background: #48bb78; }
+        .legend-tabular { background: #ecc94b; }
+        .legend-cv { background: #fc8181; }
+        .legend-nlp { background: #9f7aea; }
+        .legend-genai { background: #ed8936; }
+        
+        .framework-hub {
+            text-align: center;
+            padding: 2rem;
+            margin: 2rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 16px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .framework-branches {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        @media (max-width: 768px) {
+            .framework-branches { grid-template-columns: 1fr; }
+        }
+        
+        .branch-card {
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid;
+        }
+        .branch-supervised {
+            background: rgba(66, 153, 225, 0.1);
+            border-color: #4299e1;
+        }
+        .branch-unsupervised {
+            background: rgba(72, 187, 120, 0.1);
+            border-color: #48bb78;
+        }
+        .branch-card h4 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .branch-supervised h4 { color: #2b6cb0; }
+        .branch-unsupervised h4 { color: #276749; }
+        
+        .algo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .algo-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        .algo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        }
+        .algo-card-header {
+            padding: 1rem 1.25rem;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .algo-card.supervised .algo-card-header { background: linear-gradient(135deg, #4299e1, #3182ce); }
+        .algo-card.unsupervised .algo-card-header { background: linear-gradient(135deg, #48bb78, #38a169); }
+        .algo-card-body {
+            padding: 1.25rem;
+        }
+        .algo-domain-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin-bottom: 0.75rem;
+        }
+        .domain-tag {
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+        .domain-tabular { background: #fef3c7; color: #92400e; }
+        .domain-cv { background: #fee2e2; color: #991b1b; }
+        .domain-nlp { background: #ede9fe; color: #5b21b6; }
+        .domain-genai { background: #ffedd5; color: #9a3412; }
+        .algo-use-cases {
+            font-size: 0.85rem;
+            color: #475569;
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+        }
+        .algo-use-cases strong { color: #1e293b; }
+        .algo-explanation {
+            font-size: 0.85rem;
+            color: #64748b;
+            line-height: 1.5;
+            font-style: italic;
+        }
+        
+        .reflection-section {
+            background: #f0f9ff;
+            border-left: 4px solid #2563eb;
+            padding: 2rem;
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
+        }
+        .reflection-section h3 {
+            color: #1e40af;
+            margin-bottom: 1rem;
+        }
+        .reflection-section p {
+            color: #1e3a8a;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html">Arun Kumar Vallala</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">Welcome</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../bio.html" class="nav-link">Bio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../artifacts.html" class="nav-link active">Artifacts</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Artifact Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Machine Learning Algorithms Visual Framework</h1>
+            <p class="page-subtitle">Assignment 1.5 | AI/ML Portfolio Artifact</p>
+        </div>
+    </section>
+
+    <!-- Top Navigation -->
+    <section class="navigation-buttons">
+        <div class="container">
+            <div class="nav-buttons">
+                <a href="../artifacts.html" class="btn btn-primary">
+                    <i class="fas fa-arrow-left"></i> Back to Artifacts
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artifact Content -->
+    <section class="artifact-detail">
+        <div class="container">
+            <div class="artifact-overview">
+                <div class="artifact-hero">
+                    <div class="artifact-hero-image">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="artifact-hero-content">
+                        <h2>Visual Framework Overview</h2>
+                        <p>
+                            A comprehensive visual framework illustrating 10 machine learning algorithms, their learning types, 
+                            application domains, and real-world use cases. This infographic categorizes algorithms across 
+                            Tabular Data, Computer Vision, NLP, and Generative AI—emphasizing the interconnected nature 
+                            of modern AI/ML approaches.
+                        </p>
+                        <div class="artifact-value">
+                            <strong>Portfolio Value:</strong> This artifact demonstrates my ability to synthesize complex 
+                            technical concepts into clear visual frameworks, communicate algorithmic relationships, and 
+                            showcase understanding of the AI/ML landscape—essential skills for AI/ML professionals.
+                        </div>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Course:</span>
+                                <span class="meta-value">AIML-501-01A Model Development</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Assignment:</span>
+                                <span class="meta-value">1.5 Algorithm Framework</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Algorithms:</span>
+                                <span class="meta-value">10 Categorized</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="artifact-sections">
+                    <!-- Legend -->
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-palette"></i> Framework Legend</h3>
+                        <div class="framework-legend">
+                            <div class="legend-item"><span class="legend-dot legend-supervised"></span> Supervised Learning</div>
+                            <div class="legend-item"><span class="legend-dot legend-unsupervised"></span> Unsupervised Learning</div>
+                            <div class="legend-item"><span class="legend-dot legend-tabular"></span> Tabular Data</div>
+                            <div class="legend-item"><span class="legend-dot legend-cv"></span> Computer Vision</div>
+                            <div class="legend-item"><span class="legend-dot legend-nlp"></span> Natural Language Processing</div>
+                            <div class="legend-item"><span class="legend-dot legend-genai"></span> Generative AI</div>
+                        </div>
+                    </div>
+
+                    <!-- Visual Framework Structure -->
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-sitemap"></i> Framework Structure</h3>
+                        <div class="framework-hub">Machine Learning Algorithms</div>
+                        <div class="framework-branches">
+                            <div class="branch-card branch-supervised">
+                                <h4><i class="fas fa-graduation-cap"></i> Supervised Learning</h4>
+                                <p><strong>Tabular:</strong> Decision Trees, Random Forests, Gradient Boosting, SVMs</p>
+                                <p><strong>Computer Vision:</strong> CNNs</p>
+                                <p><strong>NLP:</strong> Transformers (GPT, BERT)</p>
+                            </div>
+                            <div class="branch-card branch-unsupervised">
+                                <h4><i class="fas fa-search"></i> Unsupervised Learning</h4>
+                                <p><strong>Tabular:</strong> K-means, PCA</p>
+                                <p><strong>Generative AI:</strong> GANs, Diffusion Models</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Algorithm Cards -->
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-th-large"></i> Algorithm Details (10 Algorithms)</h3>
+                        <div class="algo-grid">
+                            <!-- 1. Decision Trees -->
+                            <div class="algo-card supervised">
+                                <div class="algo-card-header">Decision Trees</div>
+                                <div class="algo-card-body">
+                                    <div class="algo-domain-tags"><span class="domain-tag domain-tabular">Tabular Data</span></div>
+                                    <div class="algo-use-cases"><strong>Use Cases:</strong> Credit approval, medical diagnosis, customer churn, fraud detection</div>
+                                    <div class="algo-explanation">Creates hierarchical decision rules by recursively splitting data on feature values. Maximizes information gain at each split.</div>
+                                </div>
+                            </div>
+                            <!-- 2. Random Forests -->
+                            <div class="algo-card supervised">
+                                <div class="algo-card-header">Random Forests</div>
+                                <div class="algo-card-body">
+                                    <div class="algo-domain-tags"><span class="domain-tag domain-tabular">Tabular Data</span></div>
+                                    <div class="algo-use-cases"><strong>Use Cases:</strong> Predictive maintenance, stock prediction, real estate pricing, disease risk</div>
+                                    <div class="algo-explanation">Ensemble of Decision Trees with random subsets. Voting/averaging reduces overfitting and improves accuracy.</div>
+                                </div>
+                            </div>
+                            <!-- 3. Gradient Boosting -->
+                            <div class="algo-card supervised">
+                                <div class="algo-card-header">Gradient Boosting</div>
+                                <div class="algo-card-body">
+                                    <div class="algo-domain-tags"><span class="domain-tag domain-tabular">Tabular Data</span></div>
+                                    <div class="algo-use-cases"><strong>Use Cases:</strong> Kaggle competitions, CTR prediction, search ranking, insurance claims</div>
+                                    <div class="algo-explanation">Sequential models where each corrects previous errors. XGBoost/LightGBM are optimized implementations.</div>
+                                </div>
+                            </div>
+                            <!-- 4. K-means -->
+                            <div class="algo-card unsupervised">
+                                <div class="algo-card-header">K-means Clustering</div>
+                                <div class="algo-card-body">
+                                    <div class="algo-domain-tags"><span class="domain-tag domain-tabular">Tabular Data</span></div>
+                                    <div class="algo-use-cases"><strong>Use Cases:</strong> Customer segmentation, image compression, document clustering, anomaly detection</div>
+                                    <div class="algo-explanation">Partitions data into k clusters by iteratively assigning points to nearest centroids. Minimizes within-cluster variance.</div>
+                                </div>
+                            </div>
+                            <!-- 5. CNNs -->
+                            <div class="algo-card supervised">
+                                <div class="algo-card-header">CNNs</div>
+                                <div class="algo-card-body">
+                                    <div class="algo-domain-tags"><span class="domain-tag domain-cv">Computer Vision</span></div>
+                                    <div class="algo-use-cases"><strong>Use Cases:</strong> Medical imaging, autonomous vehicles, facial recognition, defect detection</div>
+                                    <div class="algo-explanation">Convolutional layers detect local patterns (edges, textures). Hierarchical features from low-level to high-level objects.</div>
+                                </div>
+                            </div>
+                            <!-- 6. Transformers -->
+                            <div class="algo-card supervised">
+                                <div class="algo-card-header">Transformers (GPT, BERT)</div>
+                                <div class="algo-card-body">
+                                    <div class="algo-domain-tags"><span class="domain-tag domain-nlp">NLP</span></div>
+                                    <div class="algo-use-cases"><strong>Use Cases:</strong> Translation, chatbots, summarization, sentiment analysis, content moderation</div>
+                                    <div class="algo-explanation">Self-attention processes all words simultaneously. GPT (decoder-only) for generation; BERT (encoder) for understanding.</div>
+                                </div>
+                            </div>
+                            <!-- 7. GANs -->
+                            <div class="algo-card unsupervised">
+                                <div class="algo-card-header">GANs</div>
+                                <div class="algo-card-body">
+                                    <div class="algo-domain-tags"><span class="domain-tag domain-genai">Generative AI</span><span class="domain-tag domain-cv">CV</span></div>
+                                    <div class="algo-use-cases"><strong>Use Cases:</strong> Deepfakes, art generation, data augmentation, style transfer, game assets</div>
+                                    <div class="algo-explanation">Generator creates fake data; Discriminator distinguishes real from fake. Adversarial training produces realistic outputs.</div>
+                                </div>
+                            </div>
+                            <!-- 8. Diffusion Models -->
+                            <div class="algo-card unsupervised">
+                                <div class="algo-card-header">Diffusion Models</div>
+                                <div class="algo-card-body">
+                                    <div class="algo-domain-tags"><span class="domain-tag domain-genai">Generative AI</span><span class="domain-tag domain-cv">CV</span></div>
+                                    <div class="algo-use-cases"><strong>Use Cases:</strong> DALL-E, Stable Diffusion, image editing, product design, medical synthesis</div>
+                                    <div class="algo-explanation">Learns to reverse noise-adding process. Starts from noise, denoises iteratively to create high-quality images.</div>
+                                </div>
+                            </div>
+                            <!-- 9. SVMs -->
+                            <div class="algo-card supervised">
+                                <div class="algo-card-header">Support Vector Machines</div>
+                                <div class="algo-card-body">
+                                    <div class="algo-domain-tags"><span class="domain-tag domain-tabular">Tabular</span><span class="domain-tag domain-nlp">NLP</span></div>
+                                    <div class="algo-use-cases"><strong>Use Cases:</strong> Spam detection, image classification, bioinformatics, face detection, stock prediction</div>
+                                    <div class="algo-explanation">Finds optimal hyperplane maximizing margin between classes. Kernel functions handle non-linear relationships.</div>
+                                </div>
+                            </div>
+                            <!-- 10. PCA -->
+                            <div class="algo-card unsupervised">
+                                <div class="algo-card-header">PCA</div>
+                                <div class="algo-card-body">
+                                    <div class="algo-domain-tags"><span class="domain-tag domain-tabular">Tabular Data</span></div>
+                                    <div class="algo-use-cases"><strong>Use Cases:</strong> Data visualization, feature engineering, image compression, genomics, risk analysis</div>
+                                    <div class="algo-explanation">Identifies principal components capturing maximum variance. Reduces dimensionality while preserving information.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Domain Matrix -->
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-table"></i> Algorithm-Domain Matrix</h3>
+                        <div style="overflow-x: auto;">
+                            <table style="width:100%; border-collapse: collapse; font-size: 0.9rem;">
+                                <thead>
+                                    <tr style="background: #f1f5f9;">
+                                        <th style="padding: 0.75rem; text-align: left; border: 1px solid #e2e8f0;">Algorithm</th>
+                                        <th style="padding: 0.75rem; text-align: center; border: 1px solid #e2e8f0;">Supervised</th>
+                                        <th style="padding: 0.75rem; text-align: center; border: 1px solid #e2e8f0;">Unsupervised</th>
+                                        <th style="padding: 0.75rem; text-align: center; border: 1px solid #e2e8f0;">Tabular</th>
+                                        <th style="padding: 0.75rem; text-align: center; border: 1px solid #e2e8f0;">CV</th>
+                                        <th style="padding: 0.75rem; text-align: center; border: 1px solid #e2e8f0;">NLP</th>
+                                        <th style="padding: 0.75rem; text-align: center; border: 1px solid #e2e8f0;">GenAI</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td style="padding: 0.5rem; border: 1px solid #e2e8f0;">Decision Trees</td><td style="text-align: center; border: 1px solid #e2e8f0;">✓</td><td style="text-align: center; border: 1px solid #e2e8f0;"></td><td style="text-align: center; border: 1px solid #e2e8f0;">✓</td><td style="text-align: center; border: 1px solid #e2e8f0;"></td><td style="text-align: center; border: 1px solid #e2e8f0;"></td><td style="text-align: center; border: 1px solid #e2e8f0;"></td></tr>
+                                    <tr><td style="padding: 0.5rem; border: 1px solid #e2e8f0;">Random Forests</td><td style="text-align: center; border: 1px solid #e2e8f0;">✓</td><td style="text-align: center; border: 1px solid #e2e8f0;"></td><td style="text-align: center; border: 1px solid #e2e8f0;">✓</td><td style="text-align: center; border: 1px solid #e2e8f0;"></td><td style="text-align: center; border: 1px solid #e2e8f0;"></td><td style="text-align: center; border: 1px solid #e2e8f0;"></td></tr>
+                                    <tr><td style="padding: 0.5rem; border: 1px solid #e2e8f0;">Gradient Boosting</td><td style="text-align: center; border: 1px solid #e2e8f0;">✓</td><td style="text-align: center; border: 1px solid #e2e8f0;"></td><td style="text-align: center; border: 1px solid #e2e8f0;">✓</td><td style="text-align: center; border: 1px solid #e2e8f0;"></td><td style="text-align: center; border: 1px solid #e2e8f0;"></td><td style="text-align: center; border: 1px solid #e2e8f0;"></td></tr>
+                                    <tr><td style="padding: 0.5rem; border: 1px solid #e2e8f0;">K-means</td><td style="text-align: center; border: 1px solid #e2e8f0;"></td><td style="text-align: center; border: 1px solid #e2e8f0;">✓</td><td style="text-align: center; border: 1px solid #e2e8f0;">✓</td><td style="text-align: center; border: 1px solid #e2e8f0;"></td><td style="text-align: center; border: 1px solid #e2e8f0;"></td><td style="text-align: center; border: 1px solid #e2e8f0;"></td></tr>
+                                    <tr><td style="padding: 0.5rem; border: 1px solid #e2e8f0;">CNNs</td><td style="text-align: center; border: 1px solid #e2e8f0;">✓</td><td style="text-align: center; border: 1px solid #e2e8f0;"></td><td style="text-align: center; border: 1px solid #e2e8f0;"></td><td style="text-align: center; border: 1px solid #e2e8f0;">✓</td><td style="text-align: center; border: 1px solid #e2e8f0;"></td><td style="text-align: center; border: 1px solid #e2e8f0;"></td></tr>
+                                    <tr><td style="padding: 0.5rem; border: 1px solid #e2e8f0;">Transformers</td><td style="text-align: center; border: 1px solid #e2e8f0;">✓</td><td style="text-align: center; border: 1px solid #e2e8f0;"></td><td style="text-align: center; border: 1px solid #e2e8f0;"></td><td style="text-align: center; border: 1px solid #e2e8f0;"></td><td style="text-align: center; border: 1px solid #e2e8f0;">✓</td><td style="text-align: center; border: 1px solid #e2e8f0;"></td></tr>
+                                    <tr><td style="padding: 0.5rem; border: 1px solid #e2e8f0;">GANs</td><td style="text-align: center; border: 1px solid #e2e8f0;"></td><td style="text-align: center; border: 1px solid #e2e8f0;">✓</td><td style="text-align: center; border: 1px solid #e2e8f0;"></td><td style="text-align: center; border: 1px solid #e2e8f0;">✓</td><td style="text-align: center; border: 1px solid #e2e8f0;"></td><td style="text-align: center; border: 1px solid #e2e8f0;">✓</td></tr>
+                                    <tr><td style="padding: 0.5rem; border: 1px solid #e2e8f0;">Diffusion Models</td><td style="text-align: center; border: 1px solid #e2e8f0;"></td><td style="text-align: center; border: 1px solid #e2e8f0;">✓</td><td style="text-align: center; border: 1px solid #e2e8f0;"></td><td style="text-align: center; border: 1px solid #e2e8f0;">✓</td><td style="text-align: center; border: 1px solid #e2e8f0;"></td><td style="text-align: center; border: 1px solid #e2e8f0;">✓</td></tr>
+                                    <tr><td style="padding: 0.5rem; border: 1px solid #e2e8f0;">SVMs</td><td style="text-align: center; border: 1px solid #e2e8f0;">✓</td><td style="text-align: center; border: 1px solid #e2e8f0;"></td><td style="text-align: center; border: 1px solid #e2e8f0;">✓</td><td style="text-align: center; border: 1px solid #e2e8f0;">✓</td><td style="text-align: center; border: 1px solid #e2e8f0;">✓</td><td style="text-align: center; border: 1px solid #e2e8f0;"></td></tr>
+                                    <tr><td style="padding: 0.5rem; border: 1px solid #e2e8f0;">PCA</td><td style="text-align: center; border: 1px solid #e2e8f0;"></td><td style="text-align: center; border: 1px solid #e2e8f0;">✓</td><td style="text-align: center; border: 1px solid #e2e8f0;">✓</td><td style="text-align: center; border: 1px solid #e2e8f0;">✓</td><td style="text-align: center; border: 1px solid #e2e8f0;"></td><td style="text-align: center; border: 1px solid #e2e8f0;"></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Reflection -->
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-lightbulb"></i> Reflection on Learning Experience</h3>
+                        <div class="reflection-section">
+                            <p>
+                                Creating this visual framework deepened my understanding of the AI/ML landscape. I recognized that 
+                                algorithms cannot be neatly boxed into single categories—many span multiple domains. CNNs are 
+                                primarily for computer vision but can adapt to tabular data; Transformers revolutionized NLP 
+                                and are now foundational to generative AI models like GPT.
+                            </p>
+                            <p>
+                                I gained appreciation for how machine learning has evolved: traditional algorithms like Decision 
+                                Trees and SVMs remain powerful for structured data, while Transformers and Diffusion Models 
+                                represent breakthroughs in unstructured data and generative tasks. Researching real-world use 
+                                cases—Gradient Boosting dominating Kaggle, CNNs enabling medical imaging, Diffusion Models 
+                                powering creative tools—made theoretical concepts tangible.
+                            </p>
+                            <p>
+                                This artifact demonstrates my ability to synthesize complex technical concepts into clear visual 
+                                frameworks and communicate algorithmic relationships—essential skills for AI/ML professionals. 
+                                The framework serves as a valuable reference for selecting appropriate algorithms for specific 
+                                problem types throughout my studies and career.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Learning Outcomes -->
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-graduation-cap"></i> Learning Outcomes Achieved</h3>
+                        <ul class="learning-list">
+                            <li>Clearly identified and categorized 10 key machine learning algorithms</li>
+                            <li>Illustrated algorithm types and application domains through a visual framework</li>
+                            <li>Provided practical examples and real-world use cases for each algorithm</li>
+                            <li>Communicated algorithmic concepts and their significance within AI applications</li>
+                            <li>Created a professional-quality portfolio artifact demonstrating knowledge and skills</li>
+                        </ul>
+                    </div>
+
+                    <!-- Project Links -->
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-link"></i> Additional Resources</h3>
+                        <div class="project-links">
+                            <a href="../artifacts.html" class="btn btn-primary">
+                                <i class="fas fa-arrow-left"></i> Back to Artifacts
+                            </a>
+                            <a href="../index.html" class="btn btn-secondary">
+                                <i class="fas fa-home"></i> Portfolio Home
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Navigation -->
+    <section class="navigation-buttons">
+        <div class="container">
+            <div class="nav-buttons">
+                <a href="../artifacts.html" class="btn btn-primary">
+                    <i class="fas fa-arrow-left"></i> Back to Artifacts
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Arun Kumar Vallala</h3>
+                    <p>AI/ML Student & Enthusiast</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/v-arun-601548126/" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/electricshadow2k19" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Arun Kumar Vallala. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+</body>
+</html>
