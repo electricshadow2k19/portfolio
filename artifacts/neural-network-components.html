@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural Network Components - Portfolio Artifact</title>
+    <link rel="stylesheet" href="../styles/main.css?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html">Arun Kumar Vallala</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">Welcome</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../bio.html" class="nav-link">Bio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../artifacts.html" class="nav-link active">Artifacts</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Artifact Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Neural Network Components</h1>
+            <p class="page-subtitle">Academic | AI/ML | Visual Presentation</p>
+        </div>
+    </section>
+
+    <!-- Top Navigation Buttons -->
+    <section class="navigation-buttons">
+        <div class="container">
+            <div class="nav-buttons">
+                <a href="../artifacts.html" class="btn btn-primary">
+                    <i class="fas fa-arrow-left"></i> Back to Artifacts
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artifact Content -->
+    <section class="artifact-detail">
+        <div class="container">
+            <div class="artifact-overview">
+                <div class="artifact-hero">
+                    <div class="artifact-hero-image">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="artifact-hero-content">
+                        <h2>Project Overview</h2>
+                        <p>
+                            A visual presentation that explains the structure and functions of neural network components—layers, neurons, weights, activation functions, loss functions, and optimization algorithms. This artifact demonstrates the ability to simplify complex AI concepts for diverse audiences and connects theory with hands-on exploration using the Neural Network Playground.
+                        </p>
+                        <div class="artifact-value">
+                            <strong>Portfolio Value:</strong> This artifact showcases understanding of neural network architecture, clear communication of technical concepts, and the ability to create professional visual presentations—skills essential for AI/ML roles and cross-functional collaboration.
+                        </div>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Course:</span>
+                                <span class="meta-value">AIML-501: Model Development</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Type:</span>
+                                <span class="meta-value">Visual Presentation</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Status:</span>
+                                <span class="meta-value">Completed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="artifact-sections">
+                    <!-- Embedded Presentation -->
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-presentation"></i> Neural Network Components Presentation</h3>
+                        <div class="presentation-container">
+                            <div class="presentation-viewer">
+                                <div class="presentation-frame">
+                                    <iframe 
+                                        id="presentation-iframe"
+                                        src="https://view.officeapps.live.com/op/embed.aspx?src=https://electricshadow2k19.github.io/portfolio/neural_network_components_presentation.pptx"
+                                        width="100%" 
+                                        height="600px" 
+                                        frameborder="0"
+                                        allowfullscreen
+                                        onload="presentationLoaded()"
+                                        onerror="presentationError()">
+                                    </iframe>
+                                    <div id="presentation-fallback" class="presentation-fallback" style="display: none;">
+                                        <h4><i class="fas fa-exclamation-triangle"></i> Presentation Viewer Unavailable</h4>
+                                        <p>The PowerPoint presentation viewer may be unavailable or the file may still be uploading. Please use the download option below to view the presentation.</p>
+                                        <a href="../neural_network_components_presentation.pptx" download class="btn btn-primary">
+                                            <i class="fas fa-download"></i> Download Presentation
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="presentation-options">
+                                <a href="../neural_network_components_presentation.pptx" download class="btn btn-primary">
+                                    <i class="fas fa-download"></i> Download Presentation
+                                </a>
+                                <a href="../neural_network_components_presentation.pptx" target="_blank" class="btn btn-secondary">
+                                    <i class="fas fa-external-link-alt"></i> Open in New Tab
+                                </a>
+                                <button class="btn btn-secondary" id="expandView">
+                                    <i class="fas fa-expand-arrows-alt"></i> Expand View
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Components Summary -->
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-puzzle-piece"></i> Components Covered</h3>
+                        <ul class="feature-list">
+                            <li><strong>Layers:</strong> Input, hidden, and output layers and how data flows through the network.</li>
+                            <li><strong>Neurons:</strong> Basic computation units that apply weights, bias, and activation to inputs.</li>
+                            <li><strong>Weights:</strong> Learned parameters that determine the strength of connections between neurons.</li>
+                            <li><strong>Activation Functions:</strong> ReLU, Sigmoid, Tanh—introducing non-linearity and shaping outputs.</li>
+                            <li><strong>Loss Functions:</strong> MSE, Cross-Entropy—measuring prediction error to guide learning.</li>
+                            <li><strong>Optimization Algorithms:</strong> Gradient descent, Adam—updating weights to minimize loss.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Neural Network Playground -->
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-gamepad"></i> Neural Network Playground</h3>
+                        <p>This assignment included hands-on practice using the Neural Network Playground to train models with different data types, noise levels, features, and layer configurations. Observations from these experiments are summarized in the presentation and reinforce how architecture choices affect training time, complexity, and performance.</p>
+                        <div class="project-links">
+                            <a href="https://playground.tensorflow.org/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                                <i class="fas fa-external-link-alt"></i> Open Neural Network Playground
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Learning Outcomes -->
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-graduation-cap"></i> Learning Outcomes</h3>
+                        <ul class="learning-list">
+                            <li>Clearly defined and described key neural network components.</li>
+                            <li>Visually illustrated neural network elements and their functions.</li>
+                            <li>Communicated complex neural network concepts concisely and effectively.</li>
+                            <li>Connected theory with hands-on exploration using the Neural Network Playground.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Additional Resources -->
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-link"></i> Additional Resources</h3>
+                        <div class="project-links">
+                            <a href="../artifacts.html" class="btn btn-primary">
+                                <i class="fas fa-arrow-left"></i> Back to Artifacts
+                            </a>
+                            <a href="https://playground.tensorflow.org/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                                <i class="fas fa-gamepad"></i> Neural Network Playground
+                            </a>
+                            <a href="https://www.tensorflow.org/learn" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                                <i class="fas fa-book"></i> TensorFlow Learn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Navigation Buttons -->
+    <section class="navigation-buttons">
+        <div class="container">
+            <div class="nav-buttons">
+                <a href="../artifacts.html" class="btn btn-primary">
+                    <i class="fas fa-arrow-left"></i> Back to Artifacts
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Arun Kumar Vallala</h3>
+                    <p>AI/ML Student & Enthusiast</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/v-arun-601548126/" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/electricshadow2k19" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Arun Kumar Vallala. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+    <script>
+        function presentationLoaded() {
+            var fallback = document.getElementById('presentation-fallback');
+            if (fallback) fallback.style.display = 'none';
+        }
+        function presentationError() {
+            var iframe = document.getElementById('presentation-iframe');
+            var fallback = document.getElementById('presentation-fallback');
+            if (iframe) iframe.style.display = 'none';
+            if (fallback) fallback.style.display = 'block';
+        }
+        setTimeout(function() {
+            var iframe = document.getElementById('presentation-iframe');
+            if (iframe && iframe.contentWindow && iframe.contentWindow.location.href === 'about:blank') {
+                presentationError();
+            }
+        }, 10000);
+        document.addEventListener('DOMContentLoaded', function() {
+            var expandViewBtn = document.getElementById('expandView');
+            var presentationFrame = document.getElementById('presentation-iframe');
+            if (expandViewBtn && presentationFrame) {
+                expandViewBtn.addEventListener('click', function() {
+                    var h = presentationFrame.style.height || '600px';
+                    var newH = h === '600px' ? '800px' : '600px';
+                    presentationFrame.style.height = newH;
+                    this.innerHTML = newH === '800px' ? '<i class="fas fa-compress-arrows-alt"></i> Compress View' : '<i class="fas fa-expand-arrows-alt"></i> Expand View';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
