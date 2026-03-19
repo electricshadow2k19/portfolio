@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Training Process & Resource Costs - Portfolio Artifact</title>
+    <link rel="stylesheet" href="../styles/main.css?v=3">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .llm-note {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-left: 4px solid #0284c7;
+            border-radius: 12px;
+            padding: 1.25rem 1.25rem;
+            color: #0c4a6e;
+            line-height: 1.7;
+            margin: 1.5rem 0 0;
+        }
+        .llm-note strong { color: #0c4a6e; }
+
+        .llm-infographic {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            margin: 1.25rem 0 0;
+        }
+
+        .llm-steps {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.25rem;
+        }
+        @media (max-width: 1024px) {
+            .llm-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 640px) {
+            .llm-steps { grid-template-columns: 1fr; }
+        }
+
+        .llm-step {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 1.25rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .llm-step::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.06) 0%, rgba(66, 153, 225, 0.05) 60%, rgba(159, 122, 234, 0.04) 100%);
+            opacity: 0.9;
+            z-index: 0;
+        }
+        .llm-step > * { position: relative; z-index: 1; }
+        .llm-step-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        .llm-step-badge {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #1e293b;
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            border-radius: 999px;
+            padding: 0.25rem 0.6rem;
+            white-space: nowrap;
+        }
+        .llm-step-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 8px 18px rgba(102, 126, 234, 0.25);
+            flex-shrink: 0;
+        }
+        .llm-step h4 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 0.35rem;
+            line-height: 1.25;
+        }
+        .llm-step p {
+            color: #475569;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .llm-step ul {
+            margin-top: 0.75rem;
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            gap: 0.4rem;
+        }
+        .llm-step li {
+            color: #475569;
+            font-size: 0.9rem;
+            line-height: 1.45;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+        .llm-step li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #2563eb;
+            font-weight: 800;
+        }
+
+        .llm-cost-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        @media (max-width: 900px) {
+            .llm-cost-grid { grid-template-columns: 1fr; }
+        }
+
+        .llm-cost-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 1.5rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+        }
+        .llm-cost-card h4 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .llm-cost-card p {
+            color: #475569;
+            line-height: 1.7;
+            margin-bottom: 0.75rem;
+        }
+        .llm-cost-card .mini {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .llm-bars {
+            display: grid;
+            gap: 0.85rem;
+            margin-top: 0.75rem;
+        }
+        .llm-bar {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 0.75rem;
+            align-items: center;
+        }
+        @media (max-width: 520px) {
+            .llm-bar { grid-template-columns: 1fr; }
+        }
+        .llm-bar .label {
+            font-weight: 700;
+            color: #1e293b;
+            font-size: 0.9rem;
+        }
+        .llm-bar .track {
+            height: 12px;
+            background: #eef2ff;
+            border: 1px solid #e2e8f0;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+        .llm-bar .fill {
+            height: 100%;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #4299e1 0%, #667eea 55%, #9f7aea 100%);
+            width: 75%;
+        }
+        .llm-bar .fill.w60 { width: 60%; }
+        .llm-bar .fill.w70 { width: 70%; }
+        .llm-bar .fill.w80 { width: 80%; }
+        .llm-bar .fill.w90 { width: 90%; }
+
+        .llm-table-wrap {
+            overflow: auto;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            margin-top: 0.75rem;
+        }
+        table.llm-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 720px;
+            background: #ffffff;
+        }
+        .llm-table th, .llm-table td {
+            padding: 0.9rem 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            text-align: left;
+            vertical-align: top;
+            font-size: 0.95rem;
+        }
+        .llm-table th {
+            background: #f8fafc;
+            font-weight: 800;
+            color: #0f172a;
+        }
+        .llm-table td {
+            color: #475569;
+        }
+        .llm-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border: 1px solid #e2e8f0;
+            background: #f8fafc;
+            color: #1e293b;
+            white-space: nowrap;
+        }
+        .llm-pill i { color: #2563eb; }
+
+        .llm-resources {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        @media (max-width: 900px) {
+            .llm-resources { grid-template-columns: 1fr; }
+        }
+        .llm-linkcard {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 1.25rem;
+        }
+        .llm-linkcard h4 {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+        }
+        .llm-linkcard a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .llm-linkcard a:hover { text-decoration: underline; }
+        .llm-linkcard p { color: #475569; margin-top: 0.5rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html">Arun Kumar Vallala</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">Welcome</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../bio.html" class="nav-link">Bio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../artifacts.html" class="nav-link active">Artifacts</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Artifact Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Training LLMs: Process & Resource Costs</h1>
+            <p class="page-subtitle">Academic | AI/ML | Infrastructure & Generative AI</p>
+        </div>
+    </section>
+
+    <!-- Top Navigation Buttons -->
+    <section class="navigation-buttons">
+        <div class="container">
+            <div class="nav-buttons">
+                <a href="../artifacts.html" class="btn btn-primary">
+                    <i class="fas fa-arrow-left"></i> Back to Artifacts
+                </a>
+                <a href="llm-training-process-and-costs-explainer.txt" class="btn btn-secondary" download>
+                    <i class="fas fa-file-alt"></i> Download Explainer
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artifact Content -->
+    <section class="artifact-detail">
+        <div class="container">
+            <div class="artifact-overview">
+                <div class="artifact-hero">
+                    <div class="artifact-hero-image">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="artifact-hero-content">
+                        <h2>Project Overview</h2>
+                        <p>
+                            A detailed visual framework that explains how large language models (LLMs) are trained and what
+                            drives their costs—data, compute, energy, and time. This artifact is designed for a broad audience
+                            (technical and non-technical) to support clearer AI development and investment decisions.
+                        </p>
+                        <div class="artifact-value">
+                            <strong>Portfolio Value:</strong> Demonstrates understanding of generative AI infrastructure,
+                            clear visual communication, and the ability to translate complex ML pipelines into practical cost drivers.
+                        </div>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Course:</span>
+                                <span class="meta-value">AIML-501: Model Development</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Artifact Type:</span>
+                                <span class="meta-value">Infographic (Web)</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Focus:</span>
+                                <span class="meta-value">LLM Training + Cost Categories</span>
+                            </div>
+                        </div>
+                        <div class="llm-note">
+                            <strong>Important note:</strong> Many frontier-model details (e.g., GPT-4, Gemini, Claude) are not fully public.
+                            This artifact uses publicly available information where possible and clearly labels estimates vs. sourced values.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="artifact-sections">
+                    <!-- Infographic -->
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-sitemap"></i> End-to-End LLM Training Pipeline</h3>
+                        <p>
+                            This pipeline shows the main steps from data collection to deployment. Each step has a distinct cost profile and
+                            introduces different technical and governance requirements.
+                        </p>
+
+                        <div class="llm-infographic" aria-label="LLM training process infographic">
+                            <div class="llm-steps">
+                                <div class="llm-step">
+                                    <div class="llm-step-top">
+                                        <span class="llm-step-badge">Step 1</span>
+                                        <div class="llm-step-icon"><i class="fas fa-database"></i></div>
+                                    </div>
+                                    <h4>Data acquisition & governance</h4>
+                                    <p>Collect sources and manage rights, privacy, and safety constraints.</p>
+                                    <ul>
+                                        <li>Web crawl + licensed datasets</li>
+                                        <li>PII filtering & compliance</li>
+                                        <li>Data documentation</li>
+                                    </ul>
+                                </div>
+
+                                <div class="llm-step">
+                                    <div class="llm-step-top">
+                                        <span class="llm-step-badge">Step 2</span>
+                                        <div class="llm-step-icon"><i class="fas fa-filter"></i></div>
+                                    </div>
+                                    <h4>Cleaning, dedupe & tokenization</h4>
+                                    <p>Turn raw text into high-quality training tokens.</p>
+                                    <ul>
+                                        <li>Quality filtering & deduplication</li>
+                                        <li>Tokenizer build + vocab</li>
+                                        <li>Train/val/test splits</li>
+                                    </ul>
+                                </div>
+
+                                <div class="llm-step">
+                                    <div class="llm-step-top">
+                                        <span class="llm-step-badge">Step 3</span>
+                                        <div class="llm-step-icon"><i class="fas fa-microchip"></i></div>
+                                    </div>
+                                    <h4>Pre-training at scale</h4>
+                                    <p>Compute-heavy step: optimize billions of parameters over massive token counts.</p>
+                                    <ul>
+                                        <li>Distributed training (data/model parallel)</li>
+                                        <li>Checkpointing & failure recovery</li>
+                                        <li>Evaluation during training</li>
+                                    </ul>
+                                </div>
+
+                                <div class="llm-step">
+                                    <div class="llm-step-top">
+                                        <span class="llm-step-badge">Step 4</span>
+                                        <div class="llm-step-icon"><i class="fas fa-shield-alt"></i></div>
+                                    </div>
+                                    <h4>Alignment & safety tuning</h4>
+                                    <p>Improve helpfulness, reduce harmful outputs, and set behavioral constraints.</p>
+                                    <ul>
+                                        <li>Instruction tuning / preference learning</li>
+                                        <li>Safety policy + red teaming</li>
+                                        <li>Monitoring + evaluation suites</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cost categories -->
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-coins"></i> Primary Resource Categories (Cost Drivers)</h3>
+                        <p>
+                            Costs come from more than GPUs. Data preparation, engineering time, and operational overhead often
+                            determine whether training is feasible and repeatable.
+                        </p>
+
+                        <div class="llm-cost-grid">
+                            <div class="llm-cost-card">
+                                <h4><i class="fas fa-layer-group"></i> Cost Ledger (what you pay for)</h4>
+                                <p class="mini">
+                                    The bars below represent typical relative impact for large-scale training programs (not exact percentages).
+                                    The biggest drivers vary by model size, target quality, hardware, and schedule.
+                                </p>
+                                <div class="llm-bars" aria-label="Relative cost drivers">
+                                    <div class="llm-bar">
+                                        <div class="label">Compute (GPUs/TPUs)</div>
+                                        <div class="track"><div class="fill w90"></div></div>
+                                    </div>
+                                    <div class="llm-bar">
+                                        <div class="label">Engineering time</div>
+                                        <div class="track"><div class="fill w70"></div></div>
+                                    </div>
+                                    <div class="llm-bar">
+                                        <div class="label">Data pipelines</div>
+                                        <div class="track"><div class="fill w60"></div></div>
+                                    </div>
+                                    <div class="llm-bar">
+                                        <div class="label">Energy & facilities</div>
+                                        <div class="track"><div class="fill w60"></div></div>
+                                    </div>
+                                    <div class="llm-bar">
+                                        <div class="label">Evaluation & safety</div>
+                                        <div class="track"><div class="fill w60"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="llm-cost-card">
+                                <h4><i class="fas fa-bolt"></i> What affects cost the most?</h4>
+                                <p>
+                                    Training cost scales with (a) <strong>tokens processed</strong>, (b) <strong>model size</strong>,
+                                    and (c) <strong>training efficiency</strong> (hardware utilization, parallelism, and stability).
+                                </p>
+                                <p class="mini">
+                                    Practical constraints include checkpoint storage, network bandwidth between GPUs, failures/restarts,
+                                    and staffing to run 24/7 operations during large training runs.
+                                </p>
+                                <div class="llm-note" style="margin-top: 1rem;">
+                                    <strong>Tip for readers:</strong> A single “training cost” number can be misleading. The same target model
+                                    can cost drastically different amounts depending on hardware prices, utilization, and whether training must be repeated.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Examples -->
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-chart-line"></i> Public Examples (Energy / GPU-hours)</h3>
+                        <p>
+                            Below are examples where published papers provide comparable training-energy estimates. These are useful for
+                            illustrating the scale of resources even when exact vendor costs are undisclosed.
+                        </p>
+
+                        <div class="llm-table-wrap" aria-label="Public training energy table">
+                            <table class="llm-table">
+                                <thead>
+                                    <tr>
+                                        <th>Model (reported)</th>
+                                        <th>Hardware assumption</th>
+                                        <th>GPU-hours</th>
+                                        <th>Energy (MWh)</th>
+                                        <th>Estimated CO₂e (t)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="llm-pill"><i class="fas fa-cube"></i> LLaMA-7B</span></td>
+                                        <td>A100-80GB @ 400W, PUE 1.1</td>
+                                        <td>82,432</td>
+                                        <td>36</td>
+                                        <td>14</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="llm-pill"><i class="fas fa-cube"></i> LLaMA-13B</span></td>
+                                        <td>A100-80GB @ 400W, PUE 1.1</td>
+                                        <td>135,168</td>
+                                        <td>59</td>
+                                        <td>23</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="llm-pill"><i class="fas fa-cube"></i> LLaMA-33B</span></td>
+                                        <td>A100-80GB @ 400W, PUE 1.1</td>
+                                        <td>530,432</td>
+                                        <td>233</td>
+                                        <td>90</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="llm-pill"><i class="fas fa-cube"></i> LLaMA-65B</span></td>
+                                        <td>A100-80GB @ 400W, PUE 1.1</td>
+                                        <td>1,022,362</td>
+                                        <td>449</td>
+                                        <td>173</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="llm-pill"><i class="fas fa-industry"></i> BLOOM-175B</span></td>
+                                        <td>A100-80GB @ 400W, PUE 1.1</td>
+                                        <td>1,082,880</td>
+                                        <td>475</td>
+                                        <td>183</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="llm-pill"><i class="fas fa-industry"></i> OPT-175B</span></td>
+                                        <td>A100-80GB @ 400W, PUE 1.1</td>
+                                        <td>809,472</td>
+                                        <td>356</td>
+                                        <td>137</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="mini" style="margin-top: 0.75rem;">
+                            Source: Meta AI, <em>LLaMA: Open and Efficient Foundation Language Models</em> (Carbon footprint section / Table 15),
+                            which estimates energy and CO₂e under consistent assumptions for several models.
+                        </p>
+                    </div>
+
+                    <!-- Why costs vary -->
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-sliders-h"></i> Why Costs Differ Across GPT, Claude, Gemini, LLaMA</h3>
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Scale targets</h4>
+                                    <p>More parameters and more training tokens usually improve capability, but increase compute, energy, and time.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Efficiency and hardware choices</h4>
+                                    <p>Utilization, parallelism strategy, and accelerator type (GPU/TPU) can change cost dramatically.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Alignment, evaluation, and iteration</h4>
+                                    <p>Safety tuning, red teaming, and repeated training runs add significant time and staffing costs beyond pre-training.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Explanatory document + resources -->
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-file-signature"></i> Explanatory Document & Design Rationale</h3>
+                        <p>
+                            The assignment requires a brief explanatory document summarizing key points and design rationale.
+                            Download it below (it mirrors the sections and explains visual choices).
+                        </p>
+                        <div class="project-links">
+                            <a href="llm-training-process-and-costs-explainer.txt" class="btn btn-primary" download>
+                                <i class="fas fa-download"></i> Download Explainer (.txt)
+                            </a>
+                            <a href="llm-training-process-and-costs-explainer.txt" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-external-link-alt"></i> Open Explainer
+                            </a>
+                        </div>
+
+                        <div class="llm-resources" aria-label="Additional resources">
+                            <div class="llm-linkcard">
+                                <h4>Primary Source (Energy Estimates)</h4>
+                                <a href="https://export.arxiv.org/pdf/2302.13971v1.pdf" target="_blank" rel="noopener noreferrer">
+                                    LLaMA paper (arXiv PDF)
+                                </a>
+                                <p>Includes a carbon footprint section with comparable assumptions for multiple LLMs.</p>
+                            </div>
+                            <div class="llm-linkcard">
+                                <h4>How LLMs Work (Conceptual)</h4>
+                                <a href="https://openai.com/index/language-models-are-few-shot-learners/" target="_blank" rel="noopener noreferrer">
+                                    GPT-3 overview (OpenAI)
+                                </a>
+                                <p>Helpful for understanding pre-training and why scale matters (tokens, parameters, compute).</p>
+                            </div>
+                            <div class="llm-linkcard">
+                                <h4>Deployment & Operations</h4>
+                                <a href="https://ai.meta.com/research/publications/llama-open-and-efficient-foundation-language-models/" target="_blank" rel="noopener noreferrer">
+                                    LLaMA publication page (Meta)
+                                </a>
+                                <p>Additional context on efficiency, inference constraints, and model release.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Navigation Buttons -->
+    <section class="navigation-buttons">
+        <div class="container">
+            <div class="nav-buttons">
+                <a href="../artifacts.html" class="btn btn-primary">
+                    <i class="fas fa-arrow-left"></i> Back to Artifacts
+                </a>
+                <a href="llm-training-process-and-costs-explainer.txt" class="btn btn-secondary" download>
+                    <i class="fas fa-file-alt"></i> Download Explainer
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Arun Kumar Vallala</h3>
+                    <p>AI/ML Student & Enthusiast</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/v-arun-601548126/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/electricshadow2k19" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Arun Kumar Vallala. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+</body>
+</html>

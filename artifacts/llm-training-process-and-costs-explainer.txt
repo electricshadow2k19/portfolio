@@ -1,0 +1,53 @@
+LLM Training Process & Resource Costs - Explanatory Document (Portfolio Artifact)
+Arun Kumar Vallala | AIML-501: Model Development | Indiana Wesleyan University
+
+Purpose
+This artifact explains the key steps involved in training large language models (LLMs) and the primary categories of resources and costs required to do so. The goal is to communicate the training pipeline and its cost drivers clearly to varied audiences (technical and non-technical), using a structured visual framework.
+
+1) Key Steps in Training (What happens)
+1. Data acquisition & governance
+   - Collect training sources (web, licensed corpora, code, documents) and manage data rights.
+   - Apply privacy controls and filtering to reduce sensitive or unsafe content exposure.
+2. Cleaning, deduplication, and tokenization
+   - Remove low-quality data, duplicates, and boilerplate that can harm training efficiency.
+   - Convert raw text into tokens using a tokenizer (subword units) and build train/validation splits.
+3. Pre-training at scale
+   - The most compute-intensive phase: distributed optimization of model weights across massive token counts.
+   - Requires checkpointing, fault tolerance, and ongoing evaluation to detect instability and regressions.
+4. Alignment & safety tuning
+   - Improve usefulness, reduce harmful behavior, and align the model to intended policies.
+   - Includes instruction tuning and additional evaluation/red-teaming cycles prior to deployment.
+
+2) Primary Resource Categories (What it costs)
+Data
+- Acquisition/licensing, storage, documentation, and compliance checks (privacy/IP).
+Compute
+- GPU/TPU clusters, networking, storage bandwidth, and repeated training/experimentation runs.
+Energy & facilities
+- Power draw of accelerators, cooling, and operational overhead (often captured by PUE).
+Time
+- Wall-clock training time, scheduling constraints, and iteration cycles to reach target quality.
+People & operations
+- Engineering, ML research, data engineering, evaluation, safety review, and production readiness.
+
+3) Why reported “training cost” numbers vary so much
+- Frontier vendors do not disclose full details for models like GPT-4, Gemini, and Claude.
+- Hardware pricing varies widely (owned hardware vs. cloud rental; reserved vs. on-demand).
+- Efficiency varies: utilization, parallelism strategy, failures/restarts, and software stack maturity.
+- The total program cost includes multiple runs, not just the final successful run.
+
+4) Specific examples used in the graphic
+Because exact details for many frontier models are not public, the artifact uses published, comparable energy/GPU-hour estimates as concrete examples. The “Public Examples” table is based on Meta’s LLaMA paper, which provides estimates (under consistent assumptions) for LLaMA models and for OPT and BLOOM.
+
+Primary source used for the energy/GPU-hour table
+- Meta AI, “LLaMA: Open and Efficient Foundation Language Models” (arXiv:2302.13971), Carbon footprint section / Table 15.
+
+5) Design rationale (Why the graphic looks like this)
+- Pipeline-first layout: The artifact starts with the end-to-end training pipeline so readers can anchor on sequence and flow.
+- Cost ledger: The resource categories are presented as a cost “ledger” because readers often assume cost = GPUs only; the graphic explicitly broadens that view.
+- Concrete table: The public examples table provides a grounded sense of scale using values that are explicitly published in a research paper.
+- Clear labeling: The artifact calls out when information is sourced vs. when it is an estimate or “typical/relative” representation.
+
+Summary
+Training LLMs is a multi-stage process where the pre-training phase is compute-heavy, but the total effort also depends on data governance, evaluation, safety alignment, and operational maturity. Clear communication of these drivers is essential for building, deploying, or investing in generative AI systems responsibly.
+
