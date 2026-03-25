@@ -1,0 +1,7 @@
+Explainable AI for LLMs - Explanatory Document
+Arun Kumar Vallala | AIML-501: Model Development
+
+This artifact explains why Explainable AI (XAI) is essential for large language models such as GPT, Claude, Gemini, and LLaMA. The visual framework highlights key explainability challenges: model opacity, post-hoc explanation limitations, data bias, and regulatory pressure. It also summarizes industry approaches to improve transparency, including attention/probing analysis, structured reasoning prompts, safety/alignment evaluations, and model documentation practices. These methods help users and organizations better understand model behavior, limits, and risk.
+
+The artifact also emphasizes that explainability should be combined with validation and performance metrics to build trustworthy AI systems. Reliability metrics (consistency, factuality, calibration), safety metrics (toxicity and bias), and robustness checks (adversarial testing and drift monitoring) provide measurable evidence of model quality over time. I used a simple sectioned layout to make complex concepts understandable for non-technical audiences while still preserving technical accuracy, which supports both academic communication goals and portfolio professionalism.
+

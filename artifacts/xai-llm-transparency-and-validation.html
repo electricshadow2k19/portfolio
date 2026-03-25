@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explainable AI for LLMs - Transparency, Validation, and Trust</title>
+    <link rel="stylesheet" href="../styles/main.css?v=3">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .xai-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        @media (max-width: 1100px) { .xai-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 640px) { .xai-grid { grid-template-columns: 1fr; } }
+
+        .xai-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.1rem;
+        }
+        .xai-card h4 {
+            color: #0f172a;
+            font-size: 1rem;
+            margin-bottom: 0.45rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .xai-card p {
+            color: #475569;
+            font-size: 0.93rem;
+            line-height: 1.55;
+        }
+        .xai-tag {
+            display: inline-block;
+            padding: 0.25rem 0.55rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            border: 1px solid #e2e8f0;
+            color: #1e293b;
+            background: #f8fafc;
+        }
+        .xai-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        @media (max-width: 900px) { .xai-metrics { grid-template-columns: 1fr; } }
+        .xai-metric {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1rem;
+        }
+        .xai-metric h5 {
+            color: #0f172a;
+            font-size: 0.95rem;
+            margin-bottom: 0.45rem;
+        }
+        .xai-metric p {
+            color: #475569;
+            font-size: 0.9rem;
+            line-height: 1.55;
+        }
+        .xai-note {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-left: 4px solid #0284c7;
+            border-radius: 10px;
+            padding: 0.9rem 1rem;
+            color: #0c4a6e;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html">Arun Kumar Vallala</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="../index.html" class="nav-link">Welcome</a></li>
+                <li class="nav-item"><a href="../bio.html" class="nav-link">Bio</a></li>
+                <li class="nav-item"><a href="../artifacts.html" class="nav-link active">Artifacts</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Explainable AI for LLMs</h1>
+            <p class="page-subtitle">Academic | AI/ML | Transparency, Validation, and Trust</p>
+        </div>
+    </section>
+
+    <section class="navigation-buttons">
+        <div class="container">
+            <div class="nav-buttons">
+                <a href="../artifacts.html" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Back to Artifacts</a>
+                <a href="xai-llm-explainer.txt" class="btn btn-secondary" download><i class="fas fa-file-alt"></i> Download Explainer</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="artifact-detail">
+        <div class="container">
+            <div class="artifact-overview">
+                <div class="artifact-hero">
+                    <div class="artifact-hero-image"><i class="fas fa-eye"></i></div>
+                    <div class="artifact-hero-content">
+                        <h2>Project Overview</h2>
+                        <p>
+                            This visual artifact explains why explainability matters for large language models (GPT, Claude, Gemini, LLaMA),
+                            what makes these systems hard to interpret, and how validation plus performance metrics help improve reliability and trust.
+                        </p>
+                        <div class="artifact-value">
+                            <strong>Portfolio Value:</strong> Demonstrates the ability to communicate AI governance and model evaluation concepts
+                            clearly for non-technical audiences while connecting them to real-world deployment risk.
+                        </div>
+                        <div class="project-meta">
+                            <div class="meta-item"><span class="meta-label">Course:</span><span class="meta-value">AIML-501: Model Development</span></div>
+                            <div class="meta-item"><span class="meta-label">Artifact Type:</span><span class="meta-value">Infographic (Web)</span></div>
+                            <div class="meta-item"><span class="meta-label">Focus:</span><span class="meta-value">XAI + Validation Metrics</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="artifact-sections">
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-lightbulb"></i> Explainable AI and Why It Matters</h3>
+                        <p>
+                            Explainable AI (XAI) is the practice of making model behavior understandable to users, developers, auditors,
+                            and decision-makers. In high-stakes sectors such as healthcare, finance, and law, explainability supports safer adoption,
+                            better human oversight, and stronger accountability.
+                        </p>
+                    </div>
+
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Core Challenges in Explaining LLM Decisions</h3>
+                        <div class="xai-grid">
+                            <div class="xai-card">
+                                <span class="xai-tag">Complexity</span>
+                                <h4><i class="fas fa-cogs"></i> Opaque internal reasoning</h4>
+                                <p>LLM outputs emerge from billions of distributed parameters rather than a single interpretable rule chain.</p>
+                            </div>
+                            <div class="xai-card">
+                                <span class="xai-tag">Trust Gap</span>
+                                <h4><i class="fas fa-comment-dots"></i> Post-hoc explanations</h4>
+                                <p>Generated explanations may sound plausible but may not fully reflect the model's true internal process.</p>
+                            </div>
+                            <div class="xai-card">
+                                <span class="xai-tag">Data Risk</span>
+                                <h4><i class="fas fa-database"></i> Bias and data quality</h4>
+                                <p>Training data imperfections can propagate into outputs, reinforcing harmful or skewed patterns.</p>
+                            </div>
+                            <div class="xai-card">
+                                <span class="xai-tag">Governance</span>
+                                <h4><i class="fas fa-balance-scale"></i> Regulatory pressure</h4>
+                                <p>Organizations must document model behavior, validation evidence, and risk controls for compliance.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-industry"></i> Current Industry Techniques (OpenAI, Meta, Google, Anthropic)</h3>
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Attention analysis and probing</h4>
+                                    <p>Teams inspect token-level attention patterns and probe model internals to identify representation behavior and failure modes.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Chain-of-thought style reasoning prompts</h4>
+                                    <p>Structured prompts can expose step-by-step rationale, improving reviewability of complex responses.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Alignment and safety evaluations</h4>
+                                    <p>Organizations use red teaming, refusal behavior tests, and policy alignment checks before release.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>System cards and transparency documentation</h4>
+                                    <p>Public technical reports communicate model limits, benchmark behavior, and recommended use boundaries.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-chart-bar"></i> Validation Techniques and Performance Metrics</h3>
+                        <p>
+                            Explainability is stronger when paired with formal validation. Metrics help determine if a model is reliable,
+                            fair, and robust in real deployment contexts.
+                        </p>
+                        <div class="xai-metrics">
+                            <div class="xai-metric">
+                                <h5>Reliability Metrics</h5>
+                                <p>Accuracy, factuality, calibration, and consistency under prompt variation help quantify dependable behavior.</p>
+                            </div>
+                            <div class="xai-metric">
+                                <h5>Safety and Bias Metrics</h5>
+                                <p>Toxicity rates, bias differentials, harmful response frequency, and red-team pass/fail outcomes track risk.</p>
+                            </div>
+                            <div class="xai-metric">
+                                <h5>Robustness and Drift Checks</h5>
+                                <p>Stress testing, adversarial prompts, and post-deployment monitoring detect degradation and unexpected behaviors.</p>
+                            </div>
+                        </div>
+                        <div class="xai-note">
+                            <strong>Key takeaway:</strong> Transparency alone is not enough. Trustworthy AI requires explainability plus measurable evidence from validation and ongoing monitoring.
+                        </div>
+                    </div>
+
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-file-signature"></i> Explanatory Document</h3>
+                        <p>
+                            A brief 1-2 paragraph explainer is included to summarize the visual artifact, connect explainability with validation,
+                            and document design rationale for academic submission.
+                        </p>
+                        <div class="project-links">
+                            <a href="xai-llm-explainer.txt" class="btn btn-primary" download><i class="fas fa-download"></i> Download Explainer (.txt)</a>
+                            <a href="xai-llm-explainer.txt" class="btn btn-secondary" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Open Explainer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="navigation-buttons">
+        <div class="container">
+            <div class="nav-buttons">
+                <a href="../artifacts.html" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Back to Artifacts</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Arun Kumar Vallala</h3>
+                    <p>AI/ML Student & Enthusiast</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/v-arun-601548126/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/electricshadow2k19" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Arun Kumar Vallala. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../scripts/main.js"></script>
+</body>
+</html>
