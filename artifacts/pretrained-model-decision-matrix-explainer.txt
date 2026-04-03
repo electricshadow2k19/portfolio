@@ -1,0 +1,7 @@
+Pre-trained Model Trade-off Decision Matrix - Explanatory Document
+Arun Kumar Vallala | AIML-501: Model Development
+
+This artifact presents a cross-domain decision matrix comparing pre-trained models from NLP/Generative AI, Computer Vision, and tabular data contexts. The matrix focuses on the core trade-off dimensions required by the assignment: model size, accuracy potential, and inference speed. To improve practical relevance, I also included explainability and recommended use-case context for each model. This makes it easier to move from model comparison to model selection decisions.
+
+The analysis shows that no single model is best in all scenarios. Larger language models generally offer stronger broad capability but require more compute and are harder to interpret. Vision models balance speed and accuracy differently depending on deployment context (edge vs cloud). For tabular data, ensemble tree models such as XGBoost and Random Forest often provide strong performance while supporting better interpretability compared to many deep neural alternatives. I used a structured matrix layout with visual score tags to make trade-offs understandable for both technical and non-technical audiences.
+

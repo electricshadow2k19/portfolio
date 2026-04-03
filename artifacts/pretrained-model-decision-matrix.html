@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-trained Model Trade-off Decision Matrix</title>
+    <link rel="stylesheet" href="../styles/main.css?v=3">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .matrix-wrap { overflow: auto; border: 1px solid #e2e8f0; border-radius: 12px; margin-top: 1rem; }
+        .matrix { width: 100%; border-collapse: collapse; min-width: 980px; background: #fff; }
+        .matrix th, .matrix td { padding: 0.9rem; border-bottom: 1px solid #e2e8f0; text-align: left; vertical-align: top; }
+        .matrix th { background: #f8fafc; color: #0f172a; font-weight: 700; }
+        .matrix td { color: #475569; font-size: 0.95rem; }
+        .score { display: inline-block; padding: 0.2rem 0.55rem; border-radius: 999px; font-size: 0.78rem; font-weight: 700; border: 1px solid #e2e8f0; }
+        .high { background: #dcfce7; color: #166534; }
+        .medium { background: #fef3c7; color: #92400e; }
+        .low { background: #fee2e2; color: #b91c1c; }
+        .note { margin-top: 1rem; background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 0.8rem 1rem; color: #1e40af; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo"><a href="../index.html">Arun Kumar Vallala</a></div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="../index.html" class="nav-link">Welcome</a></li>
+                <li class="nav-item"><a href="../bio.html" class="nav-link">Bio</a></li>
+                <li class="nav-item"><a href="../artifacts.html" class="nav-link active">Artifacts</a></li>
+            </ul>
+            <div class="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Pre-trained Model Trade-off Matrix</h1>
+            <p class="page-subtitle">Academic | AI/ML | Model Selection Across Domains</p>
+        </div>
+    </section>
+
+    <section class="navigation-buttons">
+        <div class="container">
+            <div class="nav-buttons">
+                <a href="../artifacts.html" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Back to Artifacts</a>
+                <a href="pretrained-model-decision-matrix-explainer.txt" class="btn btn-secondary" download><i class="fas fa-file-alt"></i> Download Explainer</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="artifact-detail">
+        <div class="container">
+            <div class="artifact-overview">
+                <div class="artifact-hero">
+                    <div class="artifact-hero-image"><i class="fas fa-table"></i></div>
+                    <div class="artifact-hero-content">
+                        <h2>Project Overview</h2>
+                        <p>
+                            This artifact compares pre-trained models from NLP/Generative AI, Computer Vision, and tabular-data domains.
+                            It highlights practical trade-offs between model size, speed, accuracy, and explainability to support better model selection decisions.
+                        </p>
+                        <div class="project-meta">
+                            <div class="meta-item"><span class="meta-label">Course:</span><span class="meta-value">AIML-501: Model Development</span></div>
+                            <div class="meta-item"><span class="meta-label">Artifact Type:</span><span class="meta-value">Decision Matrix (Web)</span></div>
+                            <div class="meta-item"><span class="meta-label">Focus:</span><span class="meta-value">Size vs Accuracy vs Speed</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="artifact-sections">
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-compass"></i> Introduction and Methodology</h3>
+                        <p>
+                            I selected six commonly used models across three domains: BERT-base and LLaMA-7B (NLP/GenAI), MobileNetV3 and EfficientNet-B0 (Vision),
+                            and XGBoost plus Random Forest (Tabular). I compared approximate model size, relative speed, benchmark-level performance patterns, and explainability considerations.
+                        </p>
+                    </div>
+
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-th"></i> Decision Matrix</h3>
+                        <div class="matrix-wrap">
+                            <table class="matrix">
+                                <thead>
+                                    <tr>
+                                        <th>Model</th>
+                                        <th>Domain</th>
+                                        <th>Model Size</th>
+                                        <th>Accuracy Potential</th>
+                                        <th>Inference Speed</th>
+                                        <th>Explainability</th>
+                                        <th>Best-fit Scenario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>BERT-base</td>
+                                        <td>NLP</td>
+                                        <td>~110M params</td>
+                                        <td><span class="score high">High</span></td>
+                                        <td><span class="score medium">Medium</span></td>
+                                        <td><span class="score medium">Moderate</span></td>
+                                        <td>Text classification, NER, document understanding</td>
+                                    </tr>
+                                    <tr>
+                                        <td>LLaMA-7B</td>
+                                        <td>Generative AI</td>
+                                        <td>~7B params</td>
+                                        <td><span class="score high">High</span></td>
+                                        <td><span class="score low">Lower</span></td>
+                                        <td><span class="score low">Limited</span></td>
+                                        <td>General generation, chat, summarization</td>
+                                    </tr>
+                                    <tr>
+                                        <td>MobileNetV3</td>
+                                        <td>Vision</td>
+                                        <td>Small footprint</td>
+                                        <td><span class="score medium">Good</span></td>
+                                        <td><span class="score high">Fast</span></td>
+                                        <td><span class="score medium">Moderate</span></td>
+                                        <td>Mobile/edge image classification</td>
+                                    </tr>
+                                    <tr>
+                                        <td>EfficientNet-B0</td>
+                                        <td>Vision</td>
+                                        <td>Moderate size</td>
+                                        <td><span class="score high">High</span></td>
+                                        <td><span class="score medium">Medium</span></td>
+                                        <td><span class="score medium">Moderate</span></td>
+                                        <td>Balanced cloud or production CV pipelines</td>
+                                    </tr>
+                                    <tr>
+                                        <td>XGBoost</td>
+                                        <td>Tabular</td>
+                                        <td>Tree ensemble</td>
+                                        <td><span class="score high">High</span></td>
+                                        <td><span class="score high">Fast</span></td>
+                                        <td><span class="score high">Strong (SHAP)</span></td>
+                                        <td>Structured data, risk scoring, forecasting</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Random Forest</td>
+                                        <td>Tabular</td>
+                                        <td>Tree ensemble</td>
+                                        <td><span class="score medium">Good</span></td>
+                                        <td><span class="score medium">Medium</span></td>
+                                        <td><span class="score high">Strong</span></td>
+                                        <td>Baseline tabular tasks with interpretability</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="note"><strong>Note:</strong> Values are comparative and intended for decision support, not single-dataset absolute rankings.</div>
+                    </div>
+
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-balance-scale"></i> Analysis and Recommendations</h3>
+                        <ul class="learning-list">
+                            <li>Choose larger NLP/GenAI models when quality and breadth matter more than latency and cost.</li>
+                            <li>For real-time or edge vision workloads, MobileNet-style models usually provide the best speed trade-off.</li>
+                            <li>For tabular business data, XGBoost often gives strong performance with practical explainability support.</li>
+                            <li>Use Random Forest when you need robust baselines and easier communication with stakeholders.</li>
+                        </ul>
+                    </div>
+
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-file-signature"></i> Explanatory Document</h3>
+                        <p>This artifact includes a short explainer document summarizing key findings and design rationale.</p>
+                        <div class="project-links">
+                            <a href="pretrained-model-decision-matrix-explainer.txt" class="btn btn-primary" download><i class="fas fa-download"></i> Download Explainer (.txt)</a>
+                            <a href="pretrained-model-decision-matrix-explainer.txt" class="btn btn-secondary" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Open Explainer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section"><h3>Arun Kumar Vallala</h3><p>AI/ML Student & Enthusiast</p></div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/v-arun-601548126/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/electricshadow2k19" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2025 Arun Kumar Vallala. All rights reserved.</p></div>
+        </div>
+    </footer>
+    <script src="../scripts/main.js"></script>
+</body>
+</html>
