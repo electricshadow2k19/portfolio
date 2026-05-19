@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trend & Anomaly Detection - Text Mining Portfolio Artifact</title>
+    <link rel="stylesheet" href="../styles/main.css?v=3">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .video-container {
+            background: #0f172a;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(15, 23, 42, 0.2);
+            margin-top: 1rem;
+        }
+        .video-container video {
+            width: 100%;
+            display: block;
+            max-height: 70vh;
+        }
+        .chart-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.25rem;
+        }
+        @media (max-width: 768px) {
+            .chart-grid { grid-template-columns: 1fr; }
+        }
+        .chart-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 1rem;
+            text-align: center;
+        }
+        .chart-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .chart-card p {
+            margin-top: 0.75rem;
+            color: #475569;
+            font-size: 0.95rem;
+        }
+        .pipeline-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        .pipeline-list li {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #667eea;
+            border-radius: 10px;
+            padding: 0.85rem 1rem;
+            color: #334155;
+            line-height: 1.55;
+        }
+        .ethics-note {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-left: 4px solid #16a34a;
+            border-radius: 12px;
+            padding: 1.25rem;
+            color: #14532d;
+            line-height: 1.7;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html">Arun Kumar Vallala</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="../index.html" class="nav-link">Welcome</a></li>
+                <li class="nav-item"><a href="../bio.html" class="nav-link">Bio</a></li>
+                <li class="nav-item"><a href="../artifacts.html" class="nav-link active">Artifacts</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Trend &amp; Anomaly Detection on Consumer Complaints</h1>
+            <p class="page-subtitle">Academic | Text Mining | NLP &amp; Unsupervised Learning</p>
+        </div>
+    </section>
+
+    <section class="navigation-buttons">
+        <div class="container">
+            <div class="nav-buttons">
+                <a href="../artifacts.html" class="btn btn-primary">
+                    <i class="fas fa-arrow-left"></i> Back to Artifacts
+                </a>
+                <a href="trend-anomaly-text-mining-explainer.txt" class="btn btn-secondary" download>
+                    <i class="fas fa-download"></i> Download Explainer
+                </a>
+                <a href="arun_trend_anomaly_analysis.py" class="btn btn-secondary" download>
+                    <i class="fas fa-code"></i> Python Script
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="artifact-detail">
+        <div class="container">
+            <div class="artifact-overview">
+                <div class="artifact-hero">
+                    <div class="artifact-hero-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="artifact-hero-content">
+                        <h2>Project Overview</h2>
+                        <p>
+                            An end-to-end text mining pipeline on CFPB consumer complaint narratives: NLP preprocessing,
+                            feature engineering, Isolation Forest anomaly detection, and monthly trend analysis—with
+                            video walkthrough, visual outputs, and structured Excel exports.
+                        </p>
+                        <div class="artifact-value">
+                            <strong>Portfolio Value:</strong> Demonstrates applied NLP, unsupervised ML, time-series aggregation,
+                            and ethical framing (transparency, accountability, fairness) on real regulatory text data.
+                        </div>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Course:</span>
+                                <span class="meta-value">DTAN-520: Text Mining</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Type:</span>
+                                <span class="meta-value">Video Demo + Python Analysis</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Status:</span>
+                                <span class="meta-value">Completed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="artifact-sections">
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-play-circle"></i> Video Walkthrough</h3>
+                        <p>Screen recording demonstrating the analysis pipeline, key outputs, and interpretation of results.</p>
+                        <div class="video-container">
+                            <video controls preload="metadata" poster="media/trend_analysis_avg_word_count.png">
+                                <source src="media/arun_trend_analysis.mp4" type="video/mp4">
+                                Your browser does not support embedded video. 
+                                <a href="media/arun_trend_analysis.mp4">Download the video</a>.
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-project-diagram"></i> Analysis Pipeline</h3>
+                        <ul class="pipeline-list">
+                            <li><strong>1. Load &amp; detect columns</strong> — Auto-identify narrative text and date fields in the CFPB dataset.</li>
+                            <li><strong>2. Preprocess text</strong> — Tokenize, remove stopwords, normalize complaint narratives (NLTK).</li>
+                            <li><strong>3. Engineer features</strong> — Word count, character count, unique-word ratio per complaint.</li>
+                            <li><strong>4. Detect anomalies</strong> — Isolation Forest (~5% contamination) flags structurally unusual narratives.</li>
+                            <li><strong>5. Analyze trends</strong> — Monthly aggregates of volume, average text length, and anomaly counts.</li>
+                            <li><strong>6. Export results</strong> — Excel workbooks and PNG visualizations for review and reporting.</li>
+                        </ul>
+                    </div>
+
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-image"></i> Key Visualizations</h3>
+                        <div class="chart-grid">
+                            <div class="chart-card">
+                                <img src="media/trend_analysis_avg_word_count.png" alt="Trend analysis: average word count over time">
+                                <p>Average complaint word count over time (monthly trend).</p>
+                            </div>
+                            <div class="chart-card">
+                                <img src="media/anomaly_detection_graph.png" alt="Anomaly detection scatter plot">
+                                <p>Character count vs. word count — normal vs. anomaly complaints.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-balance-scale"></i> Ethics &amp; Responsible Use</h3>
+                        <div class="ethics-note">
+                            Anomaly flags reflect statistical outliers in text-length features—not proof of misconduct.
+                            Results should be reviewed by humans before operational decisions. Length-based metrics may
+                            correlate with writing style or literacy; apply the Transparency, Accountability, and Fairness (TAF)
+                            framework when communicating findings to stakeholders.
+                        </div>
+                    </div>
+
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-tools"></i> Technical Stack</h3>
+                        <div class="artifact-tech" style="margin-top: 0.75rem;">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">pandas</span>
+                            <span class="tech-tag">scikit-learn</span>
+                            <span class="tech-tag">NLTK</span>
+                            <span class="tech-tag">Isolation Forest</span>
+                            <span class="tech-tag">matplotlib</span>
+                            <span class="tech-tag">CFPB Data</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Arun Kumar Vallala</h3>
+                    <p>AI/ML Student &amp; Enthusiast</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/v-arun-601548126/" target="_blank" rel="noopener">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/electricshadow2k19" target="_blank" rel="noopener">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Arun Kumar Vallala. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+Trend & Anomaly Detection on Consumer Complaints - Explanatory Document (Portfolio Artifact)
+Arun Kumar Vallala | DTAN-520: Text Mining | Indiana Wesleyan University
+
+Purpose
+This artifact demonstrates an end-to-end text mining workflow applied to Consumer Financial Protection Bureau (CFPB) complaint narratives. It combines NLP preprocessing, statistical feature engineering, unsupervised anomaly detection, and time-based trend analysis. The walkthrough video (arun_trend_analysis.mp4) explains the pipeline, results, and ethical considerations for non-technical audiences.
+
+1) Problem & data
+- Domain: Consumer financial complaints (cleaned CFPB dataset).
+- Goal: Flag unusually structured complaint narratives and track how complaint text length changes over time.
+- Inputs: Narrative text and date-received fields (auto-detected when column names vary).
+
+2) Text preprocessing
+- Lowercasing, punctuation removal, tokenization (NLTK).
+- Stopword removal and short-token filtering to focus on meaningful terms.
+
+3) Feature engineering
+- word_count: tokens per complaint
+- char_count: raw narrative length
+- unique_word_ratio: lexical diversity (unique tokens / word count)
+
+4) Anomaly detection
+- Algorithm: Isolation Forest (scikit-learn), contamination ≈ 5%.
+- Output: Normal vs. Anomaly labels based on multivariate text-length features.
+- Interpretation: Anomalies are structurally unusual narratives (very short/long, atypical vocabulary spread)—not necessarily fraudulent, but worth review.
+
+5) Trend analysis
+- Monthly aggregation of record counts, average word/character counts, and anomaly counts.
+- Visualization: line chart of average word count over time; scatter plot of char_count vs. word_count with anomaly highlighting.
+
+6) Deliverables
+- Processed Excel workbook (full data, anomalies sheet, trend sheet).
+- Anomaly-only export for focused review.
+- Python script: arun_trend_anomaly_analysis.py
+- Video demo: media/arun_trend_analysis.mp4
+
+7) Ethics & responsible use (aligned with course TAF framework)
+- Transparency: Document preprocessing and model assumptions; anomalies are statistical flags, not accusations.
+- Accountability: Human review should validate flagged cases before action.
+- Fairness: Length-based features may correlate with language complexity or consumer literacy—avoid punitive use without context.
+
+Summary
+This project shows practical text mining skills—cleaning, feature design, unsupervised learning, and temporal analysis—on real regulatory text data, with clear communication via video for portfolio and professional audiences.
