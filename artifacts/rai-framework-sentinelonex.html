@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SentinelOneX RAI Framework — AIML-510 Capstone</title>
+    <link rel="stylesheet" href="../styles/main.css?v=3">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .rai-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1rem; }
+        @media (max-width: 900px) { .rai-grid { grid-template-columns: 1fr; } }
+        .rai-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1rem; }
+        .rai-card h4 { color: #0f172a; font-size: 0.95rem; margin-bottom: 0.35rem; }
+        .rai-card p { color: #475569; font-size: 0.9rem; line-height: 1.5; }
+        .rai-preview { max-width: 100%; border-radius: 12px; border: 1px solid #e2e8f0; margin: 1rem 0; }
+        .download-list { list-style: none; padding: 0; margin: 0.75rem 0 0; }
+        .download-list li { margin-bottom: 0.5rem; }
+        .download-list a { color: #007A87; font-weight: 600; text-decoration: none; }
+        .download-list a:hover { text-decoration: underline; }
+        .rai-note { background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 4px solid #38A169; border-radius: 10px; padding: 0.9rem 1rem; color: #14532d; margin-top: 1rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo"><a href="../index.html">Arun Kumar Vallala</a></div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="../index.html" class="nav-link">Welcome</a></li>
+                <li class="nav-item"><a href="../bio.html" class="nav-link">Bio</a></li>
+                <li class="nav-item"><a href="../artifacts.html" class="nav-link active">Artifacts</a></li>
+            </ul>
+            <div class="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">SentinelOneX Responsible AI Framework</h1>
+            <p class="page-subtitle">AIML-510-01 Capstone | Integrated RAI Program Design</p>
+        </div>
+    </section>
+
+    <section class="navigation-buttons">
+        <div class="container">
+            <div class="nav-buttons">
+                <a href="../artifacts.html" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Back to Artifacts</a>
+                <a href="aiml510/aiml510-rai-framework-final.pptx" class="btn btn-secondary" download><i class="fas fa-download"></i> Download Final Framework</a>
+                <a href="rai-framework-sentinelonex-explainer.txt" class="btn btn-secondary" download><i class="fas fa-file-alt"></i> Explainer</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="artifact-detail">
+        <div class="container">
+            <div class="artifact-overview">
+                <div class="artifact-hero">
+                    <div class="artifact-hero-image"><i class="fas fa-shield-alt"></i></div>
+                    <div class="artifact-hero-content">
+                        <h2>Project Overview</h2>
+                        <p>
+                            A comprehensive, ready-to-use Responsible AI framework for SentinelOneX Security—a fictional cybersecurity AI company.
+                            This capstone integrates six workshops of AIML-510 coursework into actionable governance: ethical principles,
+                            organizational structure, lifecycle controls, risk evaluation, metrics, training, and long-term sustainment including disposition.
+                        </p>
+                        <div class="artifact-value">
+                            <strong>Portfolio Value:</strong> Demonstrates ability to design enterprise RAI programs with specific metrics,
+                            not buzzwords—suitable for CAIO, AI governance, and security leadership conversations.
+                        </div>
+                        <div class="project-meta">
+                            <div class="meta-item"><span class="meta-label">Course:</span><span class="meta-value">AIML-510: Responsible Application of AI</span></div>
+                            <div class="meta-item"><span class="meta-label">Assignment:</span><span class="meta-value">6.5 Framework Completion</span></div>
+                            <div class="meta-item"><span class="meta-label">Company:</span><span class="meta-value">SentinelOneX Security</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="artifact-sections">
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-sitemap"></i> Framework Components</h3>
+                        <div class="rai-grid">
+                            <div class="rai-card"><h4>Ethics & Principles</h4><p>Fairness, accountability, transparency, privacy, reliability, human oversight—plus customer empowerment and authenticity (WS 6.2).</p></div>
+                            <div class="rai-card"><h4>Governance & Roles</h4><p>AI Review Board, 7 accountable roles, internal vetting and vendor procurement workflows (Assignment 1.4).</p></div>
+                            <div class="rai-card"><h4>12-Month Timeline</h4><p>Phased stand-up from policy definition through training, audit, and maturity review.</p></div>
+                            <div class="rai-card"><h4>Risk Domains</h4><p>Explainability, bias (NIST SP 1270), privacy/compliance, user education, workforce and societal impact.</p></div>
+                            <div class="rai-card"><h4>Lifecycle + Disposition</h4><p>Markkula ITEC-aligned stages through monitor/sustain, periodic review, and responsible model retirement.</p></div>
+                            <div class="rai-card"><h4>Metrics & Training</h4><p>&gt;95% bias pass, &lt;5% FPR, 100% critical human review, role-based employee RAI training program.</p></div>
+                        </div>
+                    </div>
+
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-image"></i> Integration Map</h3>
+                        <img src="aiml510/rai-framework-integration-map.png" alt="RAI framework integration map showing assignments 1.3 through 6.x" class="rai-preview">
+                    </div>
+
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-briefcase"></i> AI Use Cases (SentinelOneX)</h3>
+                        <div class="process-steps">
+                            <div class="process-step"><div class="step-number">1</div><div class="step-content"><h4>AI Malware Detection Engine</h4><p>ML scoring for endpoint protection with explainability and adversarial testing requirements.</p></div></div>
+                            <div class="process-step"><div class="step-number">2</div><div class="step-content"><h4>SOC Alert Triage & Prioritization</h4><p>AI-ranked alerts with analyst override and bias monitoring across customer segments.</p></div></div>
+                            <div class="process-step"><div class="step-number">3</div><div class="step-content"><h4>Incident Response Recommendations</h4><p>Human-in-the-loop containment suggestions—never fully autonomous critical actions.</p></div></div>
+                            <div class="process-step"><div class="step-number">4</div><div class="step-content"><h4>Vendor AI Risk Assessment</h4><p>Standardized procurement rubric with IP, privacy, and EO 14117 adversary screening.</p></div></div>
+                        </div>
+                    </div>
+
+                    <div class="artifact-section">
+                        <h3><i class="fas fa-download"></i> Supporting Course Materials</h3>
+                        <p>Key artifacts from Assignments 1.3–6.5 that build this integrated framework:</p>
+                        <ul class="download-list">
+                            <li><a href="aiml510/aiml510-rai-framework-final.pptx" download><i class="fas fa-file-powerpoint"></i> Final RAI Framework (6.5) — Primary capstone</a></li>
+                            <li><a href="aiml510/aiml510-1.4-governance.pptx" download>1.4 Governance Structure & 12-Month Timeline</a></li>
+                            <li><a href="aiml510/aiml510-2.4-explainability.pptx" download>2.4 Explainability & Transparency Design</a></li>
+                            <li><a href="aiml510/aiml510-3.4-bias.pptx" download>3.4 Bias Framework Design</a></li>
+                            <li><a href="aiml510/aiml510-4.4-privacy.pptx" download>4.4 Privacy & Compliance Design</a></li>
+                            <li><a href="aiml510/aiml510-5.4-sustainment.pptx" download>5.4 Lifecycle Sustainment & Customer Education</a></li>
+                            <li><a href="aiml510/aiml510-6.1-workforce.pptx" download>6.1 SwiftTel Workforce Case Study</a></li>
+                            <li><a href="aiml510/aiml510-6.2-customer-postmortem.docx" download>6.2 Google Dear Sydney Customer Post-Mortem</a></li>
+                            <li><a href="aiml510/aiml510-6.3-societal.pptx" download>6.3 CompanionAI Elara Societal Analysis</a></li>
+                            <li><a href="aiml510/aiml510-6.4-personal-rai.docx" download>6.4 Personal RAI Integrity Plan</a></li>
+                        </ul>
+                        <div class="rai-note">
+                            <strong>References:</strong> Twelve prioritized APA sources in the final deck include Blackman (2022), NIST AI RMF, NIST SP 1270, Markkula Center, Dell'Acqua et al., Postman, and WIPO generative AI guidance.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="navigation-buttons">
+        <div class="container">
+            <div class="nav-buttons">
+                <a href="../artifacts.html" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Back to Artifacts</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section"><h3>Arun Kumar Vallala</h3><p>AI/ML Student & Enthusiast</p></div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/v-arun-601548126/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/electricshadow2k19" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2025 Arun Kumar Vallala. All rights reserved.</p></div>
+        </div>
+    </footer>
+    <script src="../scripts/main.js"></script>
+</body>
+</html>

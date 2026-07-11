@@ -1,0 +1,10 @@
+SentinelOneX Security — Final Responsible AI Framework (AIML-510-01 Capstone)
+Arun Kumar Vallala | Assignment 6.5 | July 2026
+
+This portfolio artifact integrates six workshops of Responsible AI coursework into one actionable framework for a fictional cybersecurity AI company, SentinelOneX Security. The capstone presentation (aiml510-rai-framework-final.pptx) combines ethical principles, governance structure, roles, a 12-month accountability timeline, employee training, KPI metrics, a full AI development lifecycle with disposition, risk evaluation guidelines, and twelve prioritized APA references.
+
+The framework evolved across the course: Assignment 1.3 established core ethics principles and four AI use cases (malware detection, SOC alert triage, incident response recommendations, vendor AI risk assessment). Assignment 1.4 added governance roles, the AI Review Board, internal vetting and vendor procurement processes, and a phased 12-month implementation plan. Workshops 2–5 extended the framework with explainability requirements, NIST SP 1270 bias mitigations, privacy and IP controls, sustainment and customer education, and commercial monitoring tools. Workshop 6 added workforce (SwiftTel), customer empowerment and authenticity (Google Dear Sydney post-mortem), societal impact (CompanionAI Elara), and a personal integrity plan.
+
+Portfolio value: This artifact demonstrates end-to-end RAI program design—not just policy statements but specific metrics (>95% bias pass, <5% FPR, 100% critical-incident human review, 90%+ explainability), lifecycle gates aligned to Markkula ITEC, and case-study-informed recommendations for employees, customers, and society. Supporting downloads document each framework module for interview and workplace reference.
+
+Course: AIML-510-01 Responsible Application of AI, Indiana Wesleyan University.
